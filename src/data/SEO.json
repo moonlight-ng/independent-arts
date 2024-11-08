@@ -4,8 +4,8 @@
 		"route": "/",
 		"data": {
 			"pageTitle": "Home",
-			"seoTitle": "Independent Arts",
-			"pageDescription": "A platform for creators.",
+			"seoTitle": "i-a",
+			"pageDescription": "Independent Arts is a network of people, ideas and resources to bring our most precious dreams alive.",
 			"defaultSEOImage": "https://independent-arts.org/assets/images/thumbnail.png",
 			"twitterSEOImage": "https://independent-arts.org/assets/images/thumbnail.png"
 		}
@@ -14,7 +14,7 @@
 		"route": "/projects",
 		"data": {
 			"pageTitle": "Projects",
-			"seoTitle": "IA | Projects",
+			"seoTitle": "i-a | Projects",
 			"pageDescription": "A playground for ideas"
 		}
 	},
@@ -22,7 +22,7 @@
 		"route": "/about",
 		"data": {
 			"pageTitle": "About",
-			"seoTitle": "IA | About",
+			"seoTitle": "i-a | About",
 			"pageDescription": "A platform for creators"
 		}
 	},
@@ -30,7 +30,7 @@
 		"route": "/creators",
 		"data": {
 			"pageTitle": "People",
-			"seoTitle": "IA | People",
+			"seoTitle": "i-a | People",
 			"pageDescription": "Directory of studio collaborators"
 		}
 	},
@@ -38,7 +38,7 @@
 		"route": "/manifesto",
 		"data": {
 			"pageTitle": "Manifesto",
-			"seoTitle": "IA | Manifesto",
+			"seoTitle": "i-a | Manifesto",
 			"pageDescription": "Vision and roadmap for the studio"
 		}
 	},
@@ -46,7 +46,7 @@
 		"route": "/covers",
 		"data": {
 			"pageTitle": "Covers",
-			"seoTitle": "IA | Covers",
+			"seoTitle": "i-a | Covers",
 			"pageDescription": "A database of Nigerian album covers"
 		}
 	},
@@ -54,7 +54,7 @@
 		"route": "/cover-contest",
 		"data": {
 			"pageTitle": "Cover Contest",
-			"seoTitle": "IA | Cover Contest",
+			"seoTitle": "i-a | Cover Contest",
 			"pageDescription": "Apply to the wururuwuru Cover Contest"
 		}
 	},
@@ -62,7 +62,7 @@
 		"route": "/streetwear",
 		"data": {
 			"pageTitle": "Streetwear",
-			"seoTitle": "IA | Streetwear",
+			"seoTitle": "i-a | Streetwear",
 			"pageDescription": "A database of African streetwear brands"
 		}
 	},
@@ -70,7 +70,7 @@
 		"route": "/comics",
 		"data": {
 			"pageTitle": "Comics",
-			"seoTitle": "IA | Comics",
+			"seoTitle": "i-a | Comics",
 			"pageDescription": "A database of African comics"
 		}
 	}
