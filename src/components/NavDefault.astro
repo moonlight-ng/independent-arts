@@ -27,16 +27,16 @@ function isActive(route) {
 
 <div class="l-container l-container--fluid">
   <nav class="c-nav">
-    <ul id="menu">
-      {links.map(({ name, route }) => (
-      <li class={isActive(route) ? 'is-active' : '' }><a href={route}>{name}</a></li>
-      ))}
-    </ul>
     <div class="logo">
       <a href="/">
         <img src={logo} width="60px" height="60px" alt="Logo">
       </a>
     </div>
+    <ul id="menu">
+      {links.map(({ name, route }) => (
+      <li class={isActive(route) ? 'is-active' : '' }><a href={route}>{name}</a></li>
+      ))}
+    </ul>
   </nav>
 </div>
 <script>
