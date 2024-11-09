@@ -14,7 +14,7 @@
 		"route": "/projects",
 		"data": {
 			"pageTitle": "Projects",
-			"seoTitle": "i-a | Projects",
+			"seoTitle": "i-a · Projects",
 			"pageDescription": "A playground for ideas"
 		}
 	},
@@ -22,7 +22,7 @@
 		"route": "/about",
 		"data": {
 			"pageTitle": "About",
-			"seoTitle": "i-a | About",
+			"seoTitle": "i-a · About",
 			"pageDescription": "A platform for creators"
 		}
 	},
@@ -30,7 +30,7 @@
 		"route": "/creators",
 		"data": {
 			"pageTitle": "People",
-			"seoTitle": "i-a | People",
+			"seoTitle": "i-a · People",
 			"pageDescription": "Directory of studio collaborators"
 		}
 	},
@@ -38,7 +38,7 @@
 		"route": "/manifesto",
 		"data": {
 			"pageTitle": "Manifesto",
-			"seoTitle": "i-a | Manifesto",
+			"seoTitle": "i-a · Manifesto",
 			"pageDescription": "Vision and roadmap for the studio"
 		}
 	},
@@ -46,7 +46,7 @@
 		"route": "/covers",
 		"data": {
 			"pageTitle": "Covers",
-			"seoTitle": "i-a | Covers",
+			"seoTitle": "i-a · Covers",
 			"pageDescription": "A database of Nigerian album covers"
 		}
 	},
@@ -54,7 +54,7 @@
 		"route": "/cover-contest",
 		"data": {
 			"pageTitle": "Cover Contest",
-			"seoTitle": "i-a | Cover Contest",
+			"seoTitle": "i-a · Cover Contest",
 			"pageDescription": "Apply to the wururuwuru Cover Contest"
 		}
 	},
@@ -62,7 +62,7 @@
 		"route": "/streetwear",
 		"data": {
 			"pageTitle": "Streetwear",
-			"seoTitle": "i-a | Streetwear",
+			"seoTitle": "i-a · Streetwear",
 			"pageDescription": "A database of African streetwear brands"
 		}
 	},
@@ -70,7 +70,7 @@
 		"route": "/comics",
 		"data": {
 			"pageTitle": "Comics",
-			"seoTitle": "i-a | Comics",
+			"seoTitle": "i-a · Comics",
 			"pageDescription": "A database of African comics"
 		}
 	}
