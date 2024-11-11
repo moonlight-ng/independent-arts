@@ -1,33 +1,6 @@
 ---
-import team from "@data/team.json";
-//Components
 import Layout from "@layout/Default.astro";
 import PageHeader from "@components/PageHeader.astro";
-//Data
-import opemipo from "@images/team/opemipo.png"
-import nneoma from "@images/team/nneoma.png"
-import williams from "@images/team/williams.png"
-import agnes from "@images/team/agnes.png"
-import tomiwa from "@images/team/tomiwa.png"
-import experiments from "@data/manifestoLinks.json";
-
-const teamImages = {
-	"opemipo": opemipo,
-	"nneoma": nneoma,
-	"williams": williams,
-	"agnes": agnes,
-	"tomiwa": tomiwa,
-}
-
-const teamMemberData = team.reduce((acc, teamMember, index) => {
-	return {
-		...acc,
-		[teamMember.id]: {
-			...teamMember,
-			image: teamImages[teamMember.id],
-		}
-	}
-}, {})
 
 ---
 
