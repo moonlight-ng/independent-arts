@@ -4,8 +4,8 @@ import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const pressEntries = await getCollection("press");
-  return pressEntries.map(post => ({
+  const blogEntries = await getCollection("blog");
+  return blogEntries.map(post => ({
     params: {
       slug: post.slug
     },

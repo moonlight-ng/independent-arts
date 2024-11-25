@@ -3,7 +3,7 @@ import PageHeader from "@components/PageHeader.astro";
 import BlogCard from "@components/BlogCard.astro";
 import Layout from "@layout/Default.astro";
 import { getCollection } from "astro:content";
-const blogPosts = await getCollection("press");
+const blogPosts = await getCollection("blog");
 ---
 
 <Layout>
