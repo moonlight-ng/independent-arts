@@ -3,8 +3,9 @@
 import BaseHead from '@components/BaseHead.astro';
 import NavDefault from '@components/NavDefault.astro';
 import Footer from '@components/FooterDefault.astro';
+import NavArticle from '@components/NavArticle.astro';
 
-
+const {article} = Astro.props
 ---
 
 <!DOCTYPE html>
@@ -12,7 +13,8 @@ import Footer from '@components/FooterDefault.astro';
 <BaseHead />
 
 <body>
-	<NavDefault />
+	{!article && <NavDefault />}
+  {article && <NavArticle />}
 	<slot />
 	<Footer />
 </body>

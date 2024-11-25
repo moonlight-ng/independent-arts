@@ -1,5 +1,6 @@
 ---
 import logo from "@images/logo.png";
+import { Image } from "astro:assets";
 
 const links = [{
     name: 'Home',
@@ -12,6 +13,10 @@ const links = [{
   {
     name: 'Projects',
     route: '/projects'
+  },
+  {
+    name: 'Press',
+    route: '/press'
   }
 ];
 
@@ -29,7 +34,7 @@ function isActive(route) {
   <nav class="c-nav">
     <div class="logo">
       <a href="/">
-        <img src={logo} width="60px" height="60px" alt="Logo">
+        <Image src={logo} width=60 height=60 alt="Logo">
       </a>
     </div>
     <ul id="menu">

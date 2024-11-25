@@ -1,0 +1,29 @@
+---
+import PageHeader from "@components/PageHeader.astro";
+import BlogCard from "@components/BlogCard.astro";
+import Layout from "@layout/Default.astro";
+import { getCollection } from "astro:content";
+const blogPosts = await getCollection("press");
+---
+
+<Layout>
+  <main class="container">
+    <div class="blogsContainer">
+      <div class="l-container blogsGrid">
+        {blogPosts.map(blogPost => (
+          <BlogCard frontmatter={blogPost.data}/>
+        ))}
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .blogsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(350px, 50%), 1fr));
+    grid-gap: 2em;
+    align-items: center;
+    margin-top: 2em;
+  }
+</style>
