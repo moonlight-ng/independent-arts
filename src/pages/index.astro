@@ -2,6 +2,12 @@
 //Components
 import Layout from "@layout/Default.astro";
 import PageHeader from "@components/PageHeader.astro";
+import { Image } from "astro:assets";
+
+import EDHImage from "../assets/images/projects/edeyhappen.jpg";
+import feelGoodImage from "../assets/images/projects/feelgood.jpg";
+import coverBankImage from "../assets/images/projects/coverbank.jpg";
+import ludoImage from "../assets/images/projects/ludo.jpg";
 
 ---
 
@@ -17,22 +23,22 @@ import PageHeader from "@components/PageHeader.astro";
             <ul class="c-section l-grid">
                 <li class="l-grid__column--3">
                     <a href="https://edeyhappen.substack.com" target="_blank" class="button">
-                        <img src={`/assets/images/projects/edeyhappen.jpg`} alt="Cover image for EDH" /> E Dey Happen
+                        <Image src={EDHImage} alt="Cover image for EDH" /> E Dey Happen
                     </a>
                 </li>
                 <li class="l-grid__column--3">
                     <a href="https://afeelgoodbook.com" target="_blank" class="button">
-                        <img src={`/assets/images/projects/feelgood.jpg`} alt="Cover image for Feel Good" /> Feel Good
+                        <Image src={feelGoodImage} alt="Cover image for Feel Good" /> Feel Good
                     </a>
                 </li>
                 <li class="l-grid__column--3">
                     <a href="https://albumcoverbank.com" target="_blank" class="button">
-                        <img src={`/assets/images/projects/coverbank.jpg`} alt="Cover image for Cover Bank" /> Cover Bank
+                        <Image src={coverBankImage} alt="Cover image for Cover Bank" /> Cover Bank
                     </a>
                 </li>
                 <li class="l-grid__column--3">
                     <a href="https://ludobyyadi.com" target="_blank" class="button">
-                        <img src={`/assets/images/projects/ludo.jpg`} alt="Cover image for Ludo" /> Ludo by Yadi
+                        <Image src={ludoImage} alt="Cover image for Ludo" /> Ludo by Yadi
                     </a>
                 </li>
             </ul>
