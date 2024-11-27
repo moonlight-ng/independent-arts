@@ -96,7 +96,7 @@ const filters = [
               {data.map((props, index) => {
               const value = index === 0 ? true : false
               return (<div class="item">
-                <Checkbox {...props} value={value} client:load />
+                <Checkbox {...props} value={value} />
               </div>)
               })}
             </fieldset>
@@ -118,7 +118,7 @@ const filters = [
               {data.map((props, index) => {
               const value = index === 0 ? true : false
               return (<div class="item">
-                <Checkbox {...props} value={value} client:load />
+                <Checkbox {...props} value={value} />
               </div>)
               })}
             </fieldset>

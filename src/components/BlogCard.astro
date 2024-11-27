@@ -1,0 +1,65 @@
+---
+const { frontmatter } = Astro.props;
+import {Image} from "astro:assets";
+
+let {url, external} = frontmatter;
+if (!external) {
+  url = `/blog/${url}`
+}
+---
+<a class="blog" href={url} target={external ? "_blank": "_self"}>
+  <div class="imgContainer" aria-hidden="true">
+    <Image src={frontmatter.imageUrl} alt="placeholder image for the cover">
+  </div>
+  <div class="blogExcerptDetails">
+    <h3>{frontmatter.title}</h3>
+    <p>{frontmatter.date} - {frontmatter.author}</p>
+  </div>
+</a>
+
+<style>
+  .blog {
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    text-decoration: none;
+    padding: 2em 0;
+    margin: 0 auto;
+  }
+  .blog > div {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 400px;
+  }
+  .blog:hover, .blog:focus {
+    background-color: #f2f2f2;
+    text-decoration: none;
+  }
+  .blog > .imgContainer {
+    width: 310px;
+    height: 210px;
+    margin-bottom: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .imgContainer > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .blogExcerptDetails {
+    text-align: center;
+  }
+  .blogExcerptDetails h3 {
+    font-size: 3rem;
+    font-weight: 700;
+    font-style: normal;
+    margin-bottom: 1em;
+  }
+  .blogExcerptDetails p {
+    font-family: var(--font-sans-mono);
+    font-size: 1.5rem;
+    font-style: normal;
+  }
+</style>

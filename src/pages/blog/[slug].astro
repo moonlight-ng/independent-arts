@@ -1,0 +1,71 @@
+---
+import Layout from "@layout/Default.astro";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("blog");
+  return blogEntries.map(post => ({
+    params: {
+      slug: post.slug
+    },
+    props: {
+      post
+    }
+  }));
+}
+
+const { post } = Astro.props;
+let {data} = post;
+const { Content } = await post.render()
+---
+
+<Layout article>
+  <main>
+    <div class="blogHeader">
+      <!-- <div class="blogHeaderImage" aria-hidden="true">
+        <Image src={data.imageUrl} alt="">
+      </div> -->
+      <h1 class="blogHeaderTitle">{data.title}</h1>
+      <div class="blogHeaderDetails">
+        <p>{data.date}</p>
+        <p>-</p>
+        <p>{data.author}</p>
+      </div>
+    </div>
+    <div class="l-container blogContentContainer">
+      <Content />
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .blogHeader {
+    width: 95%;
+    max-width: 900px;
+    margin: 1.5em auto;
+  }
+  .blogHeaderImage {
+    height: 300px;
+    margin-bottom: 2em;
+  }
+  .blogHeaderImage > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .blogHeaderTitle {
+    font-size: 5rem;
+  }
+  .blogHeaderDetails {
+    display: flex;
+    column-gap: .5em;
+    font-family: var(--font-sans-mono);
+    font-size: 1.5rem;
+  }
+  .blogContentContainer {
+    width: 95%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+</style>

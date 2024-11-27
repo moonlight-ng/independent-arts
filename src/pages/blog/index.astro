@@ -1,0 +1,35 @@
+---
+import BlogCard from "@components/BlogCard.astro";
+import Layout from "@layout/Default.astro";
+import { getCollection } from "astro:content";
+let blogPosts = await getCollection("blog");
+
+// Sort blog posts by most recent date
+blogPosts.sort((a, b) => {
+  const dateA = new Date(a.data.date.split('.').reverse().join('-'));
+  const dateB = new Date(b.data.date.split('.').reverse().join('-'));
+  return dateB - dateA;
+});
+---
+
+<Layout>
+  <main class="container">
+    <div class="blogsContainer">
+      <div class="l-container blogsGrid">
+        {blogPosts.map(blogPost => (
+          <BlogCard frontmatter={blogPost.data}/>
+        ))}
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .blogsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(350px, 50%), 1fr));
+    grid-gap: 2em;
+    align-items: center;
+    margin-top: 2em;
+  }
+</style>

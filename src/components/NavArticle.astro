@@ -1,0 +1,104 @@
+---
+import logo from "@images/logo.png";
+import { Image } from "astro:assets";
+---
+
+<div class="l-container l-container--fluid">
+  <nav class="c-nav">
+    <div class="logo">
+      <a href="/">
+        <Image src={logo} width=60 height=60 alt="Logo">
+      </a>
+    </div>
+    <a href="/blog" class="navArticleButton">
+      <button class="navButton" >
+        <p>Back</p>
+      </button>
+    </a>
+  </nav>
+</div>
+
+<style lang="scss">
+  @import "../styles/mixins.scss";
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-block: 16px;
+    top: 0;
+    z-index: var(--z-index--5);
+    font-size: 1.6rem;
+    font-family: var(--font-sans);
+
+    &>ul>li {
+      display: inline-block;
+      padding: 0 5px;
+      color: var(--color-dark-gray);
+
+      &.is-active {
+        color: var(--color-black);
+      }
+
+      a {
+        color: inherit;
+        font-style: normal;
+      }
+
+      &:first-of-type {
+        padding-left: 0;
+        padding-inline-start: 0;
+      }
+    }
+
+    & a {
+      text-decoration: none;
+    }
+
+    .logo {
+      max-width: 5rem;
+
+      a {
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  .navArticleButton {
+    display: block;
+    text-decoration: none;
+    width: 50%;
+    max-width: 100px;
+  }
+
+  .navButton {
+    width: 100%;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid var(--color-black);
+    padding: .75em 0;
+    color: var(--color-black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: .25em;
+  }
+  .navButton:hover, .navButton:focus {
+    border-bottom-width: 2px;
+  }
+  .navButton > span {
+    font-size: 2rem;
+  }
+  .navButton > p {
+    margin: 0;
+  }
+</style>
