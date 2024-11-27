@@ -2,14 +2,11 @@
 title: Cover Bank PR
 url: cover-bank-pr
 author: Samson Oyedija
+# This format for the date is really important "DD.MM.YY"
 date: 22.11.2024
 imageUrl: "./images/cover-bank-pr/coverImage.png"
 external: false
 ---
-
-# Cover Bank PR
-
-Last edited time: November 22, 2024 1:03 PM
 
 ![Image 01.png](./images/cover-bank-pr/Image_01.png)
 
@@ -24,9 +21,7 @@ Each cover in this expansive archive represents the vision of Nigerian artists w
 With its broad selection of covers, the Album Cover Bank platform serves as an essential tool for artists, enthusiasts, educators, and researchers worldwide, helping users appreciate the historical and artistic significance of Nigerian graphic design.
 
 ![Before](./images/cover-bank-pr/Screenshot_2024-11-14_at_14.04.35.png)
+<center><em>Before</em></center>
 
-Before
-
-![Updated Website](./images/cover-bank-pr/image.png)
-
-Updated Website
+![After](./images/cover-bank-pr/image.png)
+<center><em>After</em></center>

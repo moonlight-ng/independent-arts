@@ -1,9 +1,15 @@
 ---
-import PageHeader from "@components/PageHeader.astro";
 import BlogCard from "@components/BlogCard.astro";
 import Layout from "@layout/Default.astro";
 import { getCollection } from "astro:content";
-const blogPosts = await getCollection("blog");
+let blogPosts = await getCollection("blog");
+
+// Sort blog posts by most recent date
+blogPosts.sort((a, b) => {
+  const dateA = new Date(a.data.date.split('.').reverse().join('-'));
+  const dateB = new Date(b.data.date.split('.').reverse().join('-'));
+  return dateB - dateA;
+});
 ---
 
 <Layout>
