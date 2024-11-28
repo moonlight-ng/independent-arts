@@ -8,3 +8,5 @@ imageUrl: "./images/guardian-album-cover/coverImage.webp"
 external: true
 originalHost: The Guardian
 ---
+
+[Link to hosted article here](https://www.theguardian.com/artanddesign/gallery/2024/feb/17/seventy-years-of-nigerian-album-covers-in-pictures)

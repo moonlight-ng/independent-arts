@@ -18,9 +18,18 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 let {data} = post;
 const { Content } = await post.render()
+
+const articleSEO = 	{
+	"route": `/blog/${data.url}`,
+	"data": {
+		"pageTitle": data.title,
+		"seoTitle": `i-a · ${data.title}`,
+		"pageDescription": "Test for each article description"
+	}
+};
 ---
 
-<Layout article>
+<Layout article={articleSEO}>
   <main>
     <div class="blogHeader">
       <!-- <div class="blogHeaderImage" aria-hidden="true">

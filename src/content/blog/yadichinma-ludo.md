@@ -8,3 +8,5 @@ imageUrl: "./images/yadichinma-ludo/coverImage.jpg"
 external: true
 originalHost: Contemporary And
 ---
+
+[Link to hosted article here](https://contemporaryand.com/magazines/yadichinma-ukoha-kalu-explains-how-ludo-became-an-exciting-artwork/)

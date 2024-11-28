@@ -8,3 +8,5 @@ imageUrl: "./images/int-album-cover/coverImage.webp"
 external: true
 originalHost: It's Nice That
 ---
+
+[Link to hosted article here](https://www.itsnicethat.com/features/wuruwuru-album-cover-bank-graphic-design-art-spotlight-220124)
