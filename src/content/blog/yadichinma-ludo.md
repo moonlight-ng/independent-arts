@@ -7,6 +7,7 @@ date: 23.08.2023
 imageUrl: "./images/yadichinma-ludo/coverImage.jpg"
 external: true
 originalHost: Contemporary And
+description: "Discover Ludo by Yadi: A unique Nigerian board game reimagining; that celebrates local craftsmanship, community interaction, and the joy of playful design"
 ---
 
 [Link to hosted article here](https://contemporaryand.com/magazines/yadichinma-ukoha-kalu-explains-how-ludo-became-an-exciting-artwork/)

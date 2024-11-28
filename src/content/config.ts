@@ -10,6 +10,7 @@ const blogCollection = defineCollection({
     imageUrl: image(),
     external: z.boolean(),
     originalHost: z.string().optional(),
+    description: z.string().optional(),
   })
 });
 

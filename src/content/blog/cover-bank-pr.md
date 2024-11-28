@@ -6,6 +6,7 @@ author: Samson Oyedija
 date: 22.11.2024
 imageUrl: "./images/cover-bank-pr/coverImage.png"
 external: false
+description: "Explore Cover Bank's vast archive of over 5,300 Nigerian album covers, showcasing the evolution of Nigerian music and graphic design. Learn about its revamped features, cultural impact, and global significance"
 ---
 
 ![Image 01.png](./images/cover-bank-pr/Image_01.png)
