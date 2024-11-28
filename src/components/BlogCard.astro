@@ -12,8 +12,8 @@ if (!external) {
     <Image src={frontmatter.imageUrl} alt="placeholder image for the cover">
   </div>
   <div class="blogExcerptDetails">
-    <h3>{frontmatter.title}</h3>
     <p>{frontmatter.date} - {frontmatter.author}</p>
+    <h3>{frontmatter.title}</h3>
   </div>
 </a>
 
@@ -52,14 +52,15 @@ if (!external) {
     text-align: center;
   }
   .blogExcerptDetails h3 {
-    font-size: 3rem;
+    font-size: 2.4rem;
     font-weight: 700;
     font-style: normal;
     margin-bottom: 1em;
   }
   .blogExcerptDetails p {
     font-family: var(--font-sans-mono);
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-style: normal;
+    text-transform: uppercase;
   }
 </style>

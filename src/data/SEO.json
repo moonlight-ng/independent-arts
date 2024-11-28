@@ -26,6 +26,14 @@
 			"pageDescription": "A platform for creators"
 		}
 	},
+  {
+		"route": "/blog",
+		"data": {
+			"pageTitle": "Blog",
+			"seoTitle": "i-a · Blog",
+			"pageDescription": "Explore the latest updates, insights, and press coverage from Independent Arts. Discover inspiring stories, creator-focused articles, and featured projects that celebrate the power of creativity and innovation. Stay informed and inspired!"
+		}
+	},
 	{
 		"route": "/creators",
 		"data": {
