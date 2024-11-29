@@ -1,4 +1,20 @@
 ---
+import { Image } from "astro:assets";
+
+import animationImage from "../assets/images/databases/animation.jpg";
+import comicsImage from "../assets/images/databases/comics.jpg";
+import coversImage from "../assets/images/databases/covers.jpg";
+import publishersImage from "../assets/images/databases/publishers.jpg";
+import streetWearImage from "../assets/images/databases/streetwear.jpg";
+
+const imageMap = {
+  "animation": animationImage,
+  "comics": comicsImage,
+  "covers": coversImage,
+  "publishers": publishersImage,
+  "streetwear": streetWearImage,
+}
+
 export interface Props {
   id: string,
   title: string;
@@ -13,12 +29,13 @@ const {
   url
 } = Astro.props;
 
+const databaseImage = imageMap[id];
 ---
 
 <div class="database">
   <div class="avatar">
     <a href={url} target="_blank" rel="noopener noreferrer">
-      <img src={`/assets/images/databases/${id}.jpg`} alt={`Cover for ${title}`} />
+      <Image src={databaseImage} alt={`Cover for ${title}`} />
     </a>
   </div>
   <div class="text">
@@ -69,6 +86,8 @@ const {
     }
 
     img {
+      width: 100%;
+      height: auto;
       transition: all .5s ease;
       filter: grayscale(1);
     }

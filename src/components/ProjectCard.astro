@@ -1,4 +1,20 @@
 ---
+import { Image } from "astro:assets";
+
+import edhImage from "../assets/images/projects/edeyhappen.jpg";
+import feelGoodImage from "../assets/images/projects/feelgood.jpg";
+import coverBankImage from "../assets/images/projects/coverbank.jpg";
+import ludoImage from "../assets/images/projects/ludo.jpg";
+import hankyPankyImage from "../assets/images/projects/hankypanky.jpg";
+
+const imageMap = {
+  "edeyhappen": edhImage,
+  "feelgood": feelGoodImage,
+  "coverbank": coverBankImage,
+  "ludo": ludoImage,
+  "hankypanky": hankyPankyImage,
+}
+
 export interface Props {
 	id: string,
 	title: string,
@@ -9,7 +25,6 @@ export interface Props {
 		text: string
 	}
 }
-
 const {
 	id,
 	title,
@@ -19,6 +34,7 @@ const {
 	url,
 } = Astro.props
 
+const projectImage = imageMap[id];
 ---
 
 <div class="project">
@@ -35,10 +51,10 @@ const {
 	<div class="project-cover">
 		{url ? (
 		<a href={ url?.href } target="_blank">
-			<img src={`/assets/images/projects/${id}.jpg`} alt={`Cover image for ${title}`} />
+			<Image src={projectImage} alt={`Cover image for ${title}`} />
 		</a>
 		) : (
-			<img class="pulse" src={`/assets/images/projects/${id}.jpg`} alt={`Cover image for ${title}`} />
+			<Image class="pulse" src={projectImage} alt={`Cover image for ${title}`} />
 		)}
 	</div>
 	<div class="project-text">

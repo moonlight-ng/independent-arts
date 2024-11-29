@@ -1,14 +1,17 @@
 ---
-title: Cover Bank PR
+title: Updated Filters on the Album Cover Bank
 url: cover-bank-pr
 author: Samson Oyedija
 # This format for the date is really important "DD.MM.YY"
 date: 22.11.2024
 imageUrl: "./images/cover-bank-pr/coverImage.png"
 external: false
+description: "Explore Cover Bank's vast archive of over 5,300 Nigerian album covers, showcasing the evolution of Nigerian music and graphic design. Learn about its revamped features, cultural impact, and global significance"
 ---
 
 ![Image 01.png](./images/cover-bank-pr/Image_01.png)
+<br>
+<br>
 
 Cover Bank, a digital archive showcasing over 5,300 Nigerian album covers from 1980 to the present day, has launched a significant update to its platform, making it even easier for users to explore the vast history of Nigerian music and graphic design.
 
@@ -19,9 +22,3 @@ Built by Helloworld, a technology studio for cultural production, and sponsored 
 Each cover in this expansive archive represents the vision of Nigerian artists whose work capture the essence of Nigerian music, from Highlife and Afrobeat to Hip-hop and Afrobeats. These artists have shaped the cultural identity of their time through album artwork.
 
 With its broad selection of covers, the Album Cover Bank platform serves as an essential tool for artists, enthusiasts, educators, and researchers worldwide, helping users appreciate the historical and artistic significance of Nigerian graphic design.
-
-![Before](./images/cover-bank-pr/Screenshot_2024-11-14_at_14.04.35.png)
-<center><em>Before</em></center>
-
-![After](./images/cover-bank-pr/image.png)
-<center><em>After</em></center>

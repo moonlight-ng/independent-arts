@@ -8,12 +8,52 @@ const currentPath = new URL(Astro.request.url).pathname.replace(/\/$/, '');
 const pageSEO = SEO.find(({ route }) => route === currentPath);
 const pageURL = new URL(Astro.request.url);
 
+const jsonTldSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Independent Arts",
+  "description": "A platform supporting Nigerian creators through research, grants, and press for passion projects",
+  "url": "https://independent-arts.org",
+  "foundingDate": "2021",
+  "founder": {
+    "@type": "Person",
+    "name": "Opemipo Aikomo"
+  },
+  "fundingPurpose": "Fund creative projects that nurture emerging talent",
+  "artistConnectionPurpose": "Connect artists to global ideas and people",
+  "documentationPurpose": "Support the documentation of new culture",
+  "eventPurpose": "Produce events to celebrate excellent work",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "Nigeria"
+  },
+  "logo": "https://independent-arts.org/assets/images/thumbnail.png",
+  "keywords": [
+    "Arts and Culture",
+    "Creative Projects",
+    "Nigerian Arts",
+    "Album Cover Design",
+    "Animation",
+    "Graphic Design"
+  ],
+  "potentialAction": {
+    "@type": "Action",
+    "name": "Support Creators",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://independent-arts.org/about"
+    }
+  }
+};
+
+const {article} = Astro.props;
+
 const SEOProps = {
-	...defaultSEO.data,
+  ...defaultSEO.data,
 	...pageSEO?.data,
+  ...article?.data,
 	pageURL,
 }
-
 ---
 
 <head>
@@ -44,6 +84,9 @@ const SEOProps = {
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+  <!-- Add JSON TLD Schema for SEO -->
+  <script type="application/ld+json" set:html={JSON.stringify(jsonTldSchema)} is:inline></script>
 
 	<!-- Add analytics script -->
 	{import.meta.env.PROD && (

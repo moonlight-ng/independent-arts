@@ -1,6 +1,21 @@
 ---
 import logo from "@images/logo.png";
 import { Image } from "astro:assets";
+
+const links = [{
+    name: 'Back',
+    route: '/blog'
+  },
+];
+
+const currentPath = new URL(Astro.request.url).pathname;
+
+function isActive(route) {
+  if (route === '/') {
+    return currentPath === '/' || currentPath === '';
+  }
+  return currentPath.startsWith(route);
+}
 ---
 
 <div class="l-container l-container--fluid">
@@ -10,13 +25,28 @@ import { Image } from "astro:assets";
         <Image src={logo} width=60 height=60 alt="Logo">
       </a>
     </div>
-    <a href="/blog" class="navArticleButton">
-      <button class="navButton" >
-        <p>Back</p>
-      </button>
-    </a>
+    <ul id="menu">
+      {links.map(({ name, route }) => (
+      <li class={isActive(route) ? 'is-active' : '' }><a href={route}>{name}</a></li>
+      ))}
+    </ul>
   </nav>
 </div>
+<script>
+  // Fade nav menu on scroll
+  let isVisible = true;
+  const menu = document.getElementById('menu');
+  const offset = 100;
+  window.addEventListener('scroll', function () {
+    if (isVisible && (window.scrollY > offset)) {
+      menu.style.opacity = '0';
+      isVisible = false;
+    } else if (window.scrollY < offset) {
+      menu.style.opacity = '1';
+      isVisible = true;
+    }
+  });
+</script>
 
 <style lang="scss">
   @import "../styles/mixins.scss";
@@ -71,34 +101,5 @@ import { Image } from "astro:assets";
         height: auto;
       }
     }
-  }
-
-  .navArticleButton {
-    display: block;
-    text-decoration: none;
-    width: 50%;
-    max-width: 100px;
-  }
-
-  .navButton {
-    width: 100%;
-    outline: none;
-    background-color: transparent;
-    border: 1px solid var(--color-black);
-    padding: .75em 0;
-    color: var(--color-black);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    column-gap: .25em;
-  }
-  .navButton:hover, .navButton:focus {
-    border-bottom-width: 2px;
-  }
-  .navButton > span {
-    font-size: 2rem;
-  }
-  .navButton > p {
-    margin: 0;
   }
 </style>

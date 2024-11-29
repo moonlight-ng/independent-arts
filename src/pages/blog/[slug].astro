@@ -18,9 +18,18 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 let {data} = post;
 const { Content } = await post.render()
+
+const articleSEO = 	{
+	"route": `/blog/${data.url}`,
+	"data": {
+		"pageTitle": data.title,
+		"seoTitle": `i-a · ${data.title}`,
+		"pageDescription": `${data.description}`
+	}
+};
 ---
 
-<Layout article>
+<Layout article={articleSEO}>
   <main>
     <div class="blogHeader">
       <!-- <div class="blogHeaderImage" aria-hidden="true">
@@ -55,17 +64,19 @@ const { Content } = await post.render()
     object-fit: cover;
   }
   .blogHeaderTitle {
-    font-size: 5rem;
+    font-size: 3rem;
   }
   .blogHeaderDetails {
     display: flex;
     column-gap: .5em;
-    font-family: var(--font-sans-mono);
-    font-size: 1.5rem;
+    font-family: var(--font-sans);
+    font-size: 1.75rem;
   }
   .blogContentContainer {
     width: 95%;
     max-width: 900px;
     margin: 0 auto;
+    font-size: 18px;
+    font-family: var(--font-sans);
   }
 </style>
