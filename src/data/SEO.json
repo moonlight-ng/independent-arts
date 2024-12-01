@@ -35,6 +35,16 @@
 		}
 	},
 	{
+		"route": "/blog/cover-bank-pr",
+		"data": {
+			"pageTitle": "Updated Filters on the Album Cover Bank",
+			"seoTitle": "Updated Filters on the Album Cover Bank",
+			"pageDescription": "The latest update allows users to navigate the Cover Bank more intuitively, providing faster and more efficient access to specific album covers and historical information.",
+			"defaultSEOImage": "assets/images/blog/updated-filters.png",
+			"twitterSEOImage": "assets/images/blog/updated-filters.png"
+		}
+	},
+	{
 		"route": "/creators",
 		"data": {
 			"pageTitle": "People",
