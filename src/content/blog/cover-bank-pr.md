@@ -1,7 +1,7 @@
 ---
 title: Updated Filters on the Album Cover Bank
 description: The latest update allows users to navigate the Cover Bank more intuitively, providing faster and more efficient access to specific album covers and historical information.
-url: cover-bank-pr
+url: updated-filter-on-the-album-cover-bank
 imageUrl: "./images/cover-bank-pr/coverImage.png"
 seoImageUrl: "./images/cover-bank-pr/coverImage.png"
 author: Samson Oyedija
@@ -22,3 +22,5 @@ Built by Helloworld, a technology studio for cultural production, and sponsored 
 Each cover in this expansive archive represents the vision of Nigerian artists whose work capture the essence of Nigerian music, from Highlife and Afrobeat to Hip-hop and Afrobeats. These artists have shaped the cultural identity of their time through album artwork.
 
 With its broad selection of covers, the Album Cover Bank platform serves as an essential tool for artists, enthusiasts, educators, and researchers worldwide, helping users appreciate the historical and artistic significance of Nigerian graphic design.
+
+Browse the entire archive at albumcoverbank.com
