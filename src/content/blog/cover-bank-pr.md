@@ -1,12 +1,12 @@
 ---
 title: Updated Filters on the Album Cover Bank
+description: The latest update allows users to navigate the Cover Bank more intuitively, providing faster and more efficient access to specific album covers and historical information.
 url: cover-bank-pr
-author: Samson Oyedija
-# This format for the date is really important "DD.MM.YY"
-date: 22.11.2024
 imageUrl: "./images/cover-bank-pr/coverImage.png"
+seoImageUrl: "./images/cover-bank-pr/coverImage.png"
+author: Samson Oyedija
+date: 22.11.2024 #DD.MM.YY
 external: false
-description: "Explore Cover Bank's vast archive of over 5,300 Nigerian album covers, showcasing the evolution of Nigerian music and graphic design. Learn about its revamped features, cultural impact, and global significance"
 ---
 
 ![Image 01.png](./images/cover-bank-pr/Image_01.png)

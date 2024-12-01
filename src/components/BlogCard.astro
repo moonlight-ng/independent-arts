@@ -9,7 +9,7 @@ if (!external) {
 ---
 <a class="blog" href={url} target={external ? "_blank": "_self"}>
   <div class="imgContainer" aria-hidden="true">
-    <Image src={frontmatter.imageUrl} alt="placeholder image for the cover">
+    <Image src={frontmatter.imageUrl} alt="{frontmatter.title}" />
   </div>
   <div class="blogExcerptDetails">
     <p>{frontmatter.date} - {frontmatter.author}</p>

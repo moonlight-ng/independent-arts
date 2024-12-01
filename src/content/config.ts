@@ -8,6 +8,7 @@ const blogCollection = defineCollection({
     author: z.string(),
     date: z.string(),
     imageUrl: image(),
+    seoImageUrl: image().optional(),
     external: z.boolean(),
     originalHost: z.string().optional(),
     description: z.string().optional(),

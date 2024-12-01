@@ -19,12 +19,14 @@ const { post } = Astro.props;
 let {data} = post;
 const { Content } = await post.render()
 
+const seoImage = data.seoImageUrl || data.imageUrl;
 const articleSEO = 	{
 	"route": `/blog/${data.url}`,
 	"data": {
 		"pageTitle": data.title,
+		"pageDescription": data.description,
 		"seoTitle": `i-a · ${data.title}`,
-		"pageDescription": `${data.description}`
+    "seoImage": seoImage.src,
 	}
 };
 ---
@@ -33,7 +35,7 @@ const articleSEO = 	{
   <main>
     <div class="blogHeader">
       <!-- <div class="blogHeaderImage" aria-hidden="true">
-        <Image src={data.imageUrl} alt="">
+        <Image src={data.imageUrl} alt="{data.title}" />
       </div> -->
       <h1 class="blogHeaderTitle">{data.title}</h1>
       <div class="blogHeaderDetails">

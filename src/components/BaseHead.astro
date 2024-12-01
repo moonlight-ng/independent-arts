@@ -71,14 +71,14 @@ const SEOProps = {
 	<meta property="og:url" content={SEOProps.pageURL}>
 	<meta property="og:title" content={SEOProps.seoTitle}>
 	<meta property="og:description" content={SEOProps.pageDescription}>
-	<meta property="og:image" content={SEOProps.defaultSEOImage}>
+	<meta property="og:image" content={SEOProps.seoImage || SEOProps.defaultSEOImage}>
 
 	<!-- Twitter -->
 	<meta property="twitter:card" content="summary_large_image">
 	<meta property="twitter:url" content={SEOProps.pageURL}>
 	<meta property="twitter:title" content={SEOProps.seoTitle}>
 	<meta property="twitter:description" content={SEOProps.pageDescription}>
-	<meta property="twitter:image" content={SEOProps?.twitterSEOImage ?? SEOProps.defaultSEOImage}>
+	<meta property="twitter:image" content={SEOProps.seoImage || SEOProps.defaultSEOImage}>
 
 	<!-- Font -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
