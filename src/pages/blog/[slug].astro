@@ -23,8 +23,9 @@ const articleSEO = 	{
 	"route": `/blog/${data.url}`,
 	"data": {
 		"pageTitle": data.title,
+		"pageDescription": data.description,
 		"seoTitle": `i-a · ${data.title}`,
-		"pageDescription": `${data.description}`
+    "seoImage": `${data.seoImageUrl || data.imageUrl}`,
 	}
 };
 ---

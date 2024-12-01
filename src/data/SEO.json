@@ -6,8 +6,7 @@
 			"pageTitle": "Home",
 			"seoTitle": "i-a",
 			"pageDescription": "Independent Arts is a network of people, ideas and resources to bring our most precious dreams alive.",
-			"defaultSEOImage": "https://independent-arts.org/assets/images/thumbnail.png",
-			"twitterSEOImage": "https://independent-arts.org/assets/images/thumbnail.png"
+			"defaultSEOImage": "https://independent-arts.org/assets/images/thumbnail.png"
 		}
 	},
 	{
@@ -32,16 +31,6 @@
 			"pageTitle": "Blog",
 			"seoTitle": "i-a · Blog",
 			"pageDescription": "Explore the latest updates, insights, and press coverage from Independent Arts. Discover inspiring stories, creator-focused articles, and featured projects that celebrate the power of creativity and innovation. Stay informed and inspired!"
-		}
-	},
-	{
-		"route": "/blog/cover-bank-pr",
-		"data": {
-			"pageTitle": "Updated Filters on the Album Cover Bank",
-			"seoTitle": "Updated Filters on the Album Cover Bank",
-			"pageDescription": "The latest update allows users to navigate the Cover Bank more intuitively, providing faster and more efficient access to specific album covers and historical information.",
-			"defaultSEOImage": "assets/images/blog/updated-filters.png",
-			"twitterSEOImage": "assets/images/blog/updated-filters.png"
 		}
 	},
 	{
