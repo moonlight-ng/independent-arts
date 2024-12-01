@@ -2,7 +2,8 @@
 title: Updated Filters on the Album Cover Bank
 description: The latest update allows users to navigate the Cover Bank more intuitively, providing faster and more efficient access to specific album covers and historical information.
 url: cover-bank-pr
-imageUrl: "/blog/thumbnails/updated-filters.png"
+imageUrl: "./images/cover-bank-pr/coverImage.png"
+seoImageUrl: "./images/cover-bank-pr/coverImage.png"
 author: Samson Oyedija
 date: 22.11.2024 #DD.MM.YY
 external: false
