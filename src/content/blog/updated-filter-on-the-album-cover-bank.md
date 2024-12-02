@@ -23,4 +23,4 @@ Each cover in this expansive archive represents the vision of Nigerian artists w
 
 With its broad selection of covers, the Album Cover Bank platform serves as an essential tool for artists, enthusiasts, educators, and researchers worldwide, helping users appreciate the historical and artistic significance of Nigerian graphic design.
 
-Browse the entire archive at albumcoverbank.com
+Browse the archive at <a href="https://albumcoverbank.com" target="_blank">albumcoverbank.com</a>
