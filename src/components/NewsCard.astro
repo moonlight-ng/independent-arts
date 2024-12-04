@@ -4,21 +4,21 @@ import {Image} from "astro:assets";
 
 let {url, external} = frontmatter;
 if (!external) {
-  url = `/blog/${url}`
+  url = `/news/${url}`
 }
 ---
-<a class="blog" href={url} target={external ? "_blank": "_self"}>
+<a class="news" href={url} target={external ? "_blank": "_self"}>
   <div class="imgContainer" aria-hidden="true">
     <Image src={frontmatter.imageUrl} alt="{frontmatter.title}" />
   </div>
-  <div class="blogExcerptDetails">
+  <div class="newsExcerptDetails">
     <p>{frontmatter.date} - {frontmatter.author}</p>
     <h3>{frontmatter.title}</h3>
   </div>
 </a>
 
 <style>
-  .blog {
+  .news {
     width: 100%;
     max-width: 400px;
     display: block;
@@ -26,16 +26,16 @@ if (!external) {
     padding: 2em 0;
     margin: 0 auto;
   }
-  .blog > div {
+  .news > div {
     width: 90%;
     margin: 0 auto;
     max-width: 400px;
   }
-  .blog:hover, .blog:focus {
+  .news:hover, .news:focus {
     background-color: #f2f2f2;
     text-decoration: none;
   }
-  .blog > .imgContainer {
+  .news > .imgContainer {
     width: 310px;
     height: 210px;
     margin-bottom: 2em;
@@ -48,16 +48,16 @@ if (!external) {
     height: 100%;
     object-fit: cover;
   }
-  .blogExcerptDetails {
+  .newsExcerptDetails {
     text-align: center;
   }
-  .blogExcerptDetails h3 {
+  .newsExcerptDetails h3 {
     font-size: 2.4rem;
     font-weight: 700;
     font-style: normal;
     margin-bottom: 1em;
   }
-  .blogExcerptDetails p {
+  .newsExcerptDetails p {
     font-family: var(--font-sans-mono);
     font-size: 1.4rem;
     font-style: normal;
