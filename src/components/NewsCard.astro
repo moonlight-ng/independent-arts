@@ -1,5 +1,6 @@
 ---
 const { frontmatter } = Astro.props;
+import linkArrow from "../assets/images/icons/link-arrow-up.svg";
 import {Image} from "astro:assets";
 
 let {url, external} = frontmatter;
@@ -13,7 +14,13 @@ if (!external) {
   </div>
   <div class="newsExcerptDetails">
     <p>{frontmatter.date} - {frontmatter.author}</p>
-    <h3>{frontmatter.title}</h3>
+    <h3>
+      {frontmatter.title}
+      {external ? (
+        <span aria-hidden="true"><Image src={linkArrow} alt="Click to read the article"/> </span>
+       ) : ""
+      }
+    </h3>
   </div>
 </a>
 
@@ -57,6 +64,13 @@ if (!external) {
     font-style: normal;
     margin-bottom: 1em;
   }
+  .newsExcerptDetails h3 > span {
+    display: inline-block;
+    transform: translateY(2px);
+  }
+  .newsExcerptDetails h3 > span img {
+    width: 15px;
+  }  
   .newsExcerptDetails p {
     font-family: var(--font-sans-mono);
     font-size: 1.4rem;
