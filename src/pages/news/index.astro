@@ -1,11 +1,11 @@
 ---
-import BlogCard from "@components/BlogCard.astro";
+import NewsCard from "@components/NewsCard.astro";
 import Layout from "@layout/Default.astro";
 import { getCollection } from "astro:content";
-let blogPosts = await getCollection("blog");
+let newsPosts = await getCollection("news");
 
-// Sort blog posts by most recent date
-blogPosts.sort((a, b) => {
+// Sort news posts by most recent date
+newsPosts.sort((a, b) => {
   const dateA = new Date(a.data.date.split('.').reverse().join('-'));
   const dateB = new Date(b.data.date.split('.').reverse().join('-'));
   return dateB - dateA;
@@ -14,10 +14,10 @@ blogPosts.sort((a, b) => {
 
 <Layout>
   <main class="container">
-    <div class="blogsContainer">
-      <div class="l-container blogsGrid">
-        {blogPosts.map(blogPost => (
-          <BlogCard frontmatter={blogPost.data}/>
+    <div class="newsContainer">
+      <div class="l-container newsGrid">
+        {newsPosts.map(newsPost => (
+          <NewsCard frontmatter={newsPost.data}/>
         ))}
       </div>
     </div>
@@ -25,7 +25,7 @@ blogPosts.sort((a, b) => {
 </Layout>
 
 <style>
-  .blogsGrid {
+  .newsGrid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(350px, 50%), 1fr));
     grid-gap: 2em;

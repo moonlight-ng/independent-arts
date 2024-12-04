@@ -4,8 +4,8 @@ import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection("blog");
-  return blogEntries.map(post => ({
+  const newsEntries = await getCollection("news");
+  return newsEntries.map(post => ({
     params: {
       slug: post.slug
     },
@@ -21,7 +21,7 @@ const { Content } = await post.render()
 
 const seoImage = data.seoImageUrl || data.imageUrl;
 const articleSEO = 	{
-	"route": `/blog/${data.url}`,
+	"route": `/news/${data.url}`,
 	"data": {
 		"pageTitle": data.title,
 		"pageDescription": data.description,
@@ -33,48 +33,48 @@ const articleSEO = 	{
 
 <Layout article={articleSEO}>
   <main>
-    <div class="blogHeader">
-      <!-- <div class="blogHeaderImage" aria-hidden="true">
+    <div class="newsHeader">
+      <!-- <div class="newsHeaderImage" aria-hidden="true">
         <Image src={data.imageUrl} alt="{data.title}" />
       </div> -->
-      <h1 class="blogHeaderTitle">{data.title}</h1>
-      <div class="blogHeaderDetails">
+      <h1 class="newsHeaderTitle">{data.title}</h1>
+      <div class="newsHeaderDetails">
         <p>{data.date}</p>
         <p>-</p>
         <p>{data.author}</p>
       </div>
     </div>
-    <div class="l-container blogContentContainer">
+    <div class="l-container newsContentContainer">
       <Content />
     </div>
   </main>
 </Layout>
 
 <style>
-  .blogHeader {
+  .newsHeader {
     width: 95%;
     max-width: 900px;
     margin: 1.5em auto;
   }
-  .blogHeaderImage {
+  .newsHeaderImage {
     height: 300px;
     margin-bottom: 2em;
   }
-  .blogHeaderImage > img {
+  .newsHeaderImage > img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
-  .blogHeaderTitle {
+  .newsHeaderTitle {
     font-size: 3rem;
   }
-  .blogHeaderDetails {
+  .newsHeaderDetails {
     display: flex;
     column-gap: .5em;
     font-family: var(--font-sans);
     font-size: 1.75rem;
   }
-  .blogContentContainer {
+  .newsContentContainer {
     width: 95%;
     max-width: 900px;
     margin: 0 auto;
