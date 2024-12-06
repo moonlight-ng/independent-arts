@@ -20,6 +20,7 @@ We’re excited to share a revamped filter experience that makes navigating the 
 <br>
 The latest update began with a simple question: *How do we improve the way users interact with the archive and enhance their experience?* 
 <br>
+<br>
 With this update, users can quickly and efficiently access specific album covers and historical information, streamlining their journey through the archive.
 
 This is just the start of our efforts to make the archive more interactive and user-friendly. Today’s announcement is the first step, and we’ve got even more exciting updates in store. 
