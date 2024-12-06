@@ -55,6 +55,7 @@ const articleSEO = 	{
     width: 95%;
     max-width: 900px;
     margin: 1.5em auto;
+    padding: 0 24px;
   }
   .newsHeaderImage {
     height: 300px;
@@ -79,6 +80,21 @@ const articleSEO = 	{
     max-width: 900px;
     margin: 0 auto;
     font-size: 18px;
-    font-family: var(--font-sans);
+    font-family: var(--font-serif);
+  }
+  .newsContentContainer p {
+    text-decoration: underline;
+    color: red;
+  }
+
+  @media screen and (max-width: 750px) {
+    .newsHeader {
+      padding: 0 20px;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .newsHeader {
+      padding: 0 16px;
+    }
   }
 </style>
