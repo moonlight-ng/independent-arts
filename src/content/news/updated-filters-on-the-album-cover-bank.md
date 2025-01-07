@@ -1,6 +1,6 @@
 ---
 title: Updated Filters on the Album Cover Bank
-description: This latest update allows users to navigate the Cover Bank more intuitively, providing faster and more efficient access to specific album covers and historical information.
+description: This latest update allows users to navigate the Cover Bank more intuitively, making it easier to search by designer, genre, artist, and more.
 url: updated-filters-on-the-album-cover-bank
 imageUrl: "./images/cover-bank-pr/updated-filter-image.png"
 seoImageUrl: "./images/cover-bank-pr/updated-filter-image.png"
