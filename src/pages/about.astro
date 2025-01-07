@@ -1,6 +1,8 @@
 ---
 import Layout from "@layout/Default.astro";
 import PageHeader from "@components/PageHeader.astro";
+import { Image } from "astro:assets";
+import photo from "../assets/images/team/photo.jpg";
 
 ---
 
@@ -13,46 +15,25 @@ import PageHeader from "@components/PageHeader.astro";
 			<div class="l-container l-grid">
 				<div class="c-section__left l-grid__column--6">
 					<section>
-						<p>There's very little institutional support for the arts in Nigeria. A lot of talented people have great ideas but can't afford to bring them to life.</p>
 						<p>Independent Arts is a network of people, ideas, and resources to keep our most precious dreams alive. We help Nigerian artists with research, grants, production and press for passion projects.</p>
-						<p>We believe that passion projects hold immense cultural value and are essential to our collective future. Since 2021 we've worked with dozens of artists and paid out over $100k in commissions.</p>
-						<p>Our mission is to:</p>
+						<p>We believe that passion projects hold immense cultural value and are essential to our collective future. We've worked with dozens of artists and paid out over $100k in commissions since 2021.</p>
+						Our mission is to:</p>
 						<ul>
 							<li>1. Fund creative projects that nurture emerging talent</li>
 							<li>2. Connect local artists to global ideas and people</li>
-							<li>3. Support the documentation of new culture</li>
+							<li>3. Contribute to the documentation of new culture</li>
 							<li>4. Produce events to celebrate excellent work</li>
 						</ul>
-						<p>Subscribe to keep up with our latest work.</p>
+						<p>We're based in Lagos and operate globally.</p>
 					</section>
 				</div>
-				<aside class="c-section__right l-grid__column-start--9 l-grid__column--4">
-					<ul class="c-section" style="display: grid; gap: 20px">
-							<li class="l-grid__column--3">
-								<a href="https://www.theguardian.com/artanddesign/gallery/2024/feb/17/seventy-years-of-nigerian-album-covers-in-pictures" target="_blank">
-									Seventy years of Nigerian album covers – in pictures
-								</a>
-								<div><small>The Observer - Feb 2024</small></div>
-							</li>
-							<li class="l-grid__column--3">
-								<a href="https://www.itsnicethat.com/features/wuruwuru-album-cover-bank-graphic-design-art-spotlight-220124" target="_blank">
-									Album Cover Bank traces over 70 years of Nigeria’s album design and visual culture
-								</a>
-								<div><small>It's Nice That - Jan 2024</small></div>
-							</li>
-							<li class="l-grid__column--3">
-								<a href="https://animationobsessive.substack.com/i/139631220/making-an-animated-film-in-nigeria" target="_blank">
-									Hanky Panky - Making an animated film in Nigeria
-								</a>
-								<div><small>Animation Obsessive - December 2023</small></div>
-							</li>
-							<li class="l-grid__column--3">
-								<a href="https://contemporaryand.com/magazines/yadichinma-ukoha-kalu-explains-how-ludo-became-an-exciting-artwork/" target="_blank">
-									Yadichinma Ukoha-Kalu Explains How Ludo Became an Exciting Artwork
-								</a>
-								<div><small>Contemporary And - August 2023</small></div>
-							</li>
-						</ul>
+				<aside class="c-section__right l-grid__column-start--8 l-grid__column--5">
+					<div class="c-section">
+						<figure>
+							<Image src={photo} width={512} height={341} alt="Team photo" />
+							<figcaption>Opemipo Aikomo (Director) and Williams Ogah (Manager)</figcaption>
+						</figure>
+					</div>
 				</aside>
 			</div>
 		</section>
