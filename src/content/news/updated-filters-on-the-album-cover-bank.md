@@ -9,10 +9,10 @@ date: 22.11.2024 #DD.MM.YY
 external: false
 ---
 
-We've launched a significant update to Cover Bank, a digital archive showcasing over 5,300 Nigerian album covers from the 1950s to date.
+We're excited to announce a significant update to Cover Bank, our digital archive of over 5,300 Nigerian album covers spanning from the 1950s to present day.
 
-We’re excited to share a revamped filter experience that makes navigating the archive more intuitive. We've brought out filters to the top of the page, making it easier to access.
+The latest update brings a more intuitive browsing experience with improved filters now prominently displayed at the top of the page. This enhancement makes it easier to explore covers by designer, genre, artist, and more.
 
-With this feature, our goal is to make it easier to find a cover. This is the start of our efforts to build an engaged community around the archive.
+This update is just the beginning of our efforts to build an engaged community around Nigerian music history. Whether you're a researcher, designer, or music enthusiast, we hope these improvements help you discover and appreciate the rich visual heritage of Nigerian music.
 
 Experience the new updates at <a href="https://albumcoverbank.com" target="_blank">albumcoverbank.com</a>
