@@ -13,6 +13,6 @@ We're excited to announce a significant update to Cover Bank, our digital archiv
 
 The latest update brings a more intuitive browsing experience with improved filters now prominently displayed at the top of the page. This enhancement makes it easier to explore covers by designer, genre, artist, and more.
 
-This update is just the beginning of our efforts to build an engaged community around Nigerian music history. Whether you're a researcher, designer, or music enthusiast, we hope these improvements help you discover and appreciate the rich visual heritage of Nigerian music.
+This update is just the beginning of our efforts to build an engaged community around Nigerian graphic design history. Whether you're a researcher, designer, or music enthusiast, we hope these improvements help you discover and appreciate the rich visual heritage of Nigerian music.
 
 Experience the new updates at <a href="https://albumcoverbank.com" target="_blank">albumcoverbank.com</a>
