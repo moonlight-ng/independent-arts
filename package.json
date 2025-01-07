@@ -20,6 +20,7 @@
     "autoprefixer": "^10.4.7",
     "axios": "^1.6.7",
     "crypto": "^1.0.1",
+    "date-fns": "^4.1.0",
     "editorconfig": "^0.15.3",
     "isotope-layout": "^3.0.6",
     "postcss": "^8.4.14",

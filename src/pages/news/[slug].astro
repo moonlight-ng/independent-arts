@@ -2,6 +2,7 @@
 import Layout from "@layout/Default.astro";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
+import { parse, format } from 'date-fns';
 
 export async function getStaticPaths() {
   const newsEntries = await getCollection("news");
@@ -29,36 +30,43 @@ const articleSEO = 	{
 		"seoImage": `${Astro.site}${seoImage.src}`,
 	}
 };
+
+// Remove the leading '#' and parse the date
+let formattedDate = 'Invalid Date';
+try {
+  const date = parse(data.date, 'dd.MM.yyyy', new Date());
+  formattedDate = format(date, 'MMM d, yyyy');
+} catch (error) {
+  console.error('Error parsing date:', error);
+}
 ---
 
 <Layout article={articleSEO}>
   <main>
     <div class="newsHeader">
-      <!-- <div class="newsHeaderImage" aria-hidden="true">
+      <div class="newsHeaderImage" aria-hidden="true">
         <Image src={data.imageUrl} alt="{data.title}" />
-      </div> -->
+      </div>
       <h1 class="newsHeaderTitle">{data.title}</h1>
       <div class="newsHeaderDetails">
-        <p>{data.date}</p>
-        <p>-</p>
-        <p>{data.author}</p>
+        <p>{data.author} ・ {formattedDate}</p>
       </div>
     </div>
     <div class="l-container newsContentContainer">
       <Content />
+      <div class="newsContentFooter">✦</div>
     </div>
   </main>
 </Layout>
 
 <style>
   .newsHeader {
-    width: 95%;
-    max-width: 900px;
+    width: 100%;
+    max-width: 700px;
     margin: 1.5em auto;
     padding: 0 24px;
   }
   .newsHeaderImage {
-    height: 300px;
     margin-bottom: 2em;
   }
   .newsHeaderImage > img {
@@ -73,16 +81,23 @@ const articleSEO = 	{
     display: flex;
     column-gap: .5em;
     font-family: var(--font-sans);
-    font-size: 1.75rem;
+    font-size: 1.6rem;
   }
   .newsContentContainer {
-    width: 95%;
-    max-width: 900px;
+    width: 100%;
+    max-width: 700px;
+    padding: 0 24px;
     margin: 0 auto;
-    font-size: 18px;
     font-family: var(--font-serif);
   }
+  .newsContentFooter {
+    margin: 100px auto;
+    text-align: center;
+    font-size: 2rem;
+    color: var(--color-gray-500);
+  }
   .newsContentContainer p {
+    font-size: 1.6rem;
     text-decoration: underline;
     color: red;
   }
