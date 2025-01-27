@@ -1,6 +1,8 @@
 {
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"],
   "compilerOptions": {
-    "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
       "@@/*": ["src/*"],
@@ -19,8 +21,5 @@
     "resolveJsonModule": true,
     // Enable stricter transpilation for better output.
     "isolatedModules": true,
-    // Add type definitions for our Vite runtime.
-    "types": ["vite/client"]
   }
 }
-
