@@ -2,6 +2,7 @@
 import "@styles/main.scss";
 import Analytics from "./Analytics.astro";
 import SEO from "@data/SEO.json";
+import { ClientRouter } from 'astro:transitions';
 
 const defaultSEO = SEO.find(({ type = null }) => type && type === 'default');
 const currentPath = new URL(Astro.request.url).pathname.replace(/\/$/, '');
@@ -88,6 +89,9 @@ const SEOProps = {
 
   <!-- Add JSON TLD Schema for SEO -->
   <script type="application/ld+json" set:html={JSON.stringify(jsonTldSchema)} is:inline></script>
+
+  <!-- Add client router -->
+  <ClientRouter />
 
 	<!-- Add analytics script -->
 	{import.meta.env.PROD && (
