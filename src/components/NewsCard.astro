@@ -26,7 +26,7 @@ const external = attribution ? true : false;
 
 <a class='news' href={link} target={target}>
   <div class='imgContainer' aria-hidden='true'>
-    <Image src={coverImage} alt={title} width={350} height={200} />
+    <Image src={coverImage} alt={title} inferSize />
   </div>
   <div class='newsExcerptDetails'>
     <p>{formattedDate} - {nameToDisplay}</p>
