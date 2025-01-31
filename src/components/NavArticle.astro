@@ -10,7 +10,7 @@ const links = [{
 
 const currentPath = new URL(Astro.request.url).pathname;
 
-function isActive(route) {
+function isActive(route: string) {
   if (route === '/') {
     return currentPath === '/' || currentPath === '';
   }
@@ -22,7 +22,7 @@ function isActive(route) {
   <nav class="c-nav">
     <div class="logo">
       <a href="/">
-        <Image src={logo} width=60 height=60 alt="Logo">
+        <Image src={logo} loading="eager" width=60 height=60 alt="Logo">
       </a>
     </div>
     <ul id="menu">
@@ -37,6 +37,9 @@ function isActive(route) {
   let isVisible = true;
   const menu = document.getElementById('menu');
   const offset = 100;
+  
+  if (!menu) return;
+
   window.addEventListener('scroll', function () {
     if (isVisible && (window.scrollY > offset)) {
       menu.style.opacity = '0';
