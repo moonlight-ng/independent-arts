@@ -50,8 +50,6 @@ function isActive(route: string) {
   const menu = document.getElementById('menu');
   const offset = 100;
 
-  if (!menu) return;
-  
   window.addEventListener('scroll', function () {
     if (isVisible && (window.scrollY > offset)) {
       menu.style.opacity = '0';
