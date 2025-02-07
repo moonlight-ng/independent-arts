@@ -4,7 +4,7 @@
 		"route": "/",
 		"data": {
 			"pageTitle": "Home",
-			"seoTitle": "i-a · A platform for creators",
+			"seoTitle": "A platform for creators",
 			"pageDescription": "Independent Arts is a creative incubator that empowers Nigerian artists through funding, research, and distribution for passion projects.",
 			"defaultSEOImage": "https://independent-arts.org/thumbnail.png"
 		}
@@ -13,7 +13,7 @@
 		"route": "/projects",
 		"data": {
 			"pageTitle": "Projects",
-			"seoTitle": "i-a · Projects",
+			"seoTitle": "Projects",
 			"pageDescription": "Explore innovative Nigerian projects, from animated shows and queer storytelling to album cover archives and contemporary art, supported by Independent Arts."
 		}
 	},
@@ -21,7 +21,7 @@
 		"route": "/about",
 		"data": {
 			"pageTitle": "About",
-			"seoTitle": "i-a · About",
+			"seoTitle": "About",
 			"pageDescription": "Independent Arts is solving a critical challenge in Nigeria's creative industry: talented artists often struggle to bring their boldest visions to life."
 		}
 	},
@@ -29,7 +29,7 @@
 		"route": "/news",
 		"data": {
 			"pageTitle": "News",
-			"seoTitle": "i-a · News",
+			"seoTitle": "News",
 			"pageDescription": "Explore the latest updates, insights, and press coverage from Independent Arts."
 		}
 	},
@@ -37,7 +37,7 @@
 		"route": "/creators",
 		"data": {
 			"pageTitle": "People",
-			"seoTitle": "i-a · People",
+			"seoTitle": "People",
 			"pageDescription": "Directory of studio collaborators"
 		}
 	},
@@ -45,7 +45,7 @@
 		"route": "/manifesto",
 		"data": {
 			"pageTitle": "Manifesto",
-			"seoTitle": "i-a · Manifesto",
+			"seoTitle": "Manifesto",
 			"pageDescription": "Vision and roadmap for the studio"
 		}
 	},
@@ -53,7 +53,7 @@
 		"route": "/covers",
 		"data": {
 			"pageTitle": "Covers",
-			"seoTitle": "i-a · Covers",
+			"seoTitle": "Covers",
 			"pageDescription": "A database of Nigerian album covers"
 		}
 	},
@@ -61,7 +61,7 @@
 		"route": "/cover-contest",
 		"data": {
 			"pageTitle": "Cover Contest",
-			"seoTitle": "i-a · Cover Contest",
+			"seoTitle": "Cover Contest",
 			"pageDescription": "Apply to the wururuwuru Cover Contest"
 		}
 	},
@@ -69,7 +69,7 @@
 		"route": "/streetwear",
 		"data": {
 			"pageTitle": "Streetwear",
-			"seoTitle": "i-a · Streetwear",
+			"seoTitle": "Streetwear",
 			"pageDescription": "A database of African streetwear brands"
 		}
 	},
@@ -77,7 +77,7 @@
 		"route": "/comics",
 		"data": {
 			"pageTitle": "Comics",
-			"seoTitle": "i-a · Comics",
+			"seoTitle": "Comics",
 			"pageDescription": "A database of African comics"
 		}
 	}
