@@ -1,24 +1,58 @@
 ---
-const { frontmatter } = Astro.props;
-import linkArrow from "../assets/images/icons/link-arrow-up.svg";
-import {Image} from "astro:assets";
+import { type NewsPost } from '@@/schemas/news';
+import { Image } from 'astro:assets';
 
-let {url, external} = frontmatter;
-if (!external) {
-  url = `/news/${url}`
+interface Props {
+  data: NewsPost;
 }
+
+const { data } = Astro.props;
+const { title, slug, attribution, author, publishedAt, coverImage } = data;
+
+const formattedDate = new Date(publishedAt)
+  .toLocaleDateString('en-US', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  })
+  .split('/')
+  .join('.');
+
+const link = attribution ? attribution.url : `/news/${slug}`;
+const target = attribution ? '_blank' : '_self';
+const nameToDisplay = attribution ? attribution.author : author.name;
+const external = attribution ? true : false;
 ---
-<a class="news" href={url} target={external ? "_blank": "_self"}>
-  <div class="imgContainer" aria-hidden="true">
-    <Image src={frontmatter.imageUrl} alt="{frontmatter.title}" />
+
+<a class='news' href={link} target={target}>
+  <div class='imgContainer' aria-hidden='true'>
+    <Image src={coverImage} alt={title} loading="eager" inferSize />
   </div>
-  <div class="newsExcerptDetails">
-    <p>{frontmatter.date} - {frontmatter.author}</p>
+  <div class='newsExcerptDetails'>
+    <p>{formattedDate} - {nameToDisplay}</p>
     <h3>
-      {frontmatter.title}
-      {external ? (
-        <span aria-hidden="true"><Image src={linkArrow} alt="Click to read the article"/> </span>
-       ) : ""
+      {title}
+      {
+        external ? (
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            width='15'
+            height='15'
+            viewBox='0 0 24 24'
+            fill='none'
+            stroke='currentColor'
+            stroke-width='1.5'
+            stroke-linecap='round'
+            stroke-linejoin='round'
+          >
+            <>
+              <path d='M7 7h10v10' />
+              <path d='M7 17 17 7' />
+            </>
+          </svg>
+        ) : (
+          ''
+        )
       }
     </h3>
   </div>
@@ -38,7 +72,8 @@ if (!external) {
     margin: 0 auto;
     max-width: 400px;
   }
-  .news:hover, .news:focus {
+  .news:hover,
+  .news:focus {
     background-color: #f2f2f2;
     text-decoration: none;
   }
@@ -50,8 +85,9 @@ if (!external) {
   }
   .imgContainer > img {
     width: 100%;
-    height: 100%;
+    height: 210px;
     object-fit: cover;
+    aspect-ratio: 16 / 9;
   }
   .newsExcerptDetails {
     text-align: center;
@@ -68,7 +104,7 @@ if (!external) {
   }
   .newsExcerptDetails h3 > span img {
     width: 15px;
-  }  
+  }
   .newsExcerptDetails p {
     font-family: var(--font-sans-mono);
     font-size: 1.4rem;

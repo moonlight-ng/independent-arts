@@ -2,95 +2,131 @@
 import "@styles/main.scss";
 import Analytics from "./Analytics.astro";
 import SEO from "@data/SEO.json";
+import { ClientRouter } from "astro:transitions";
 
-const defaultSEO = SEO.find(({ type = null }) => type && type === 'default');
-const currentPath = new URL(Astro.request.url).pathname.replace(/\/$/, '');
+const defaultSEO = SEO.find(({ type = null }) => type && type === "default");
+const currentPath = new URL(Astro.request.url).pathname.replace(/\/$/, "");
 const pageSEO = SEO.find(({ route }) => route === currentPath);
 const pageURL = new URL(Astro.request.url);
 
 const jsonTldSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Independent Arts",
-  "description": "A platform supporting Nigerian creators through research, grants, and press for passion projects",
-  "url": "https://independent-arts.org",
-  "foundingDate": "2021",
-  "founder": {
+  name: "Independent Arts",
+  description:
+    "A platform supporting Nigerian creators through research, grants, and press for passion projects",
+  url: "https://independent-arts.org",
+  foundingDate: "2021",
+  founder: {
     "@type": "Person",
-    "name": "Opemipo Aikomo"
+    name: "Opemipo Aikomo",
   },
-  "fundingPurpose": "Fund creative projects that nurture emerging talent",
-  "artistConnectionPurpose": "Connect artists to global ideas and people",
-  "documentationPurpose": "Support the documentation of new culture",
-  "eventPurpose": "Produce events to celebrate excellent work",
-  "address": {
+  fundingPurpose: "Fund creative projects that nurture emerging talent",
+  artistConnectionPurpose: "Connect artists to global ideas and people",
+  documentationPurpose: "Support the documentation of new culture",
+  eventPurpose: "Produce events to celebrate excellent work",
+  address: {
     "@type": "PostalAddress",
-    "addressCountry": "Nigeria"
+    addressCountry: "Nigeria",
   },
-  "logo": "https://independent-arts.org/thumbnail.png",
-  "keywords": [
+  logo: "https://independent-arts.org/thumbnail.png",
+  keywords: [
     "Arts and Culture",
     "Creative Projects",
     "Nigerian Arts",
     "Album Cover Design",
     "Animation",
-    "Graphic Design"
+    "Graphic Design",
   ],
-  "potentialAction": {
+  potentialAction: {
     "@type": "Action",
-    "name": "Support Creators",
-    "target": {
+    name: "Support Creators",
+    target: {
       "@type": "EntryPoint",
-      "urlTemplate": "https://independent-arts.org/about"
-    }
-  }
+      urlTemplate: "https://independent-arts.org/about",
+    },
+  },
 };
 
-const {article} = Astro.props;
-
-const SEOProps = {
-	...defaultSEO.data,
-	...pageSEO?.data,
-  ...article?.data,
-	pageURL,
+interface Props {
+  article:
+    | {
+        route: string;
+        data: {
+          pageTitle: string;
+          pageDescription: string;
+          seoTitle: string;
+          seoImage: string;
+        };
+      }
+    | undefined;
 }
 
+const { article } = Astro.props;
+
+const SEOProps = {
+  defaultSEOImage: "/thumbnail.png",
+  ...defaultSEO?.data,
+  ...pageSEO?.data,
+  ...article?.data,
+  pageURL,
+};
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <head>
-	<title>{SEOProps.seoTitle}</title>
-	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
-	<meta name="viewport" content="width=device-width,initial-scale=1.0">
-	<meta name="title" content={SEOProps.seoTitle}>
+  <meta charset="utf-8" />
+  <meta name="generator" content={Astro.generator} />
+  <meta http-equiv="Content-Type" content="text/html" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-	<link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="canonical" href={canonicalURL} />
+  <link rel="sitemap" href="/sitemap-index.xml" />
 
-	<meta name="description" content={SEOProps.pageDescription}>
+  <title>{SEOProps.seoTitle}</title>
+  <meta name="title" content={SEOProps.seoTitle} />
+  <meta name="description" content={SEOProps.pageDescription} />
 
-	<!-- Open Graph / Facebook -->
-	<meta property="og:type" content="website">
-	<meta property="og:url" content={SEOProps.pageURL}>
-	<meta property="og:title" content={SEOProps.seoTitle}>
-	<meta property="og:description" content={SEOProps.pageDescription}>
-	<meta property="og:image" content={SEOProps.seoImage || SEOProps.defaultSEOImage}>
+  <link rel="icon" type="image/png" href="/favicon.png" />
 
-	<!-- Twitter -->
-	<meta property="twitter:card" content="summary_large_image">
-	<meta property="twitter:url" content={SEOProps.pageURL}>
-	<meta property="twitter:title" content={SEOProps.seoTitle}>
-	<meta property="twitter:description" content={SEOProps.pageDescription}>
-	<meta property="twitter:image" content={SEOProps.seoImage || SEOProps.defaultSEOImage}>
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={SEOProps.pageURL} />
+  <meta property="og:title" content={SEOProps.seoTitle} />
+  <meta property="og:site_name" content={SEOProps.seoTitle} />
+  <meta property="og:description" content={SEOProps.pageDescription} />
+  <meta
+    property="og:image"
+    content={new URL(SEOProps.seoImage || SEOProps.defaultSEOImage, Astro.url)}
+    }
+  />
 
-	<!-- Font -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content={pageURL} />
+  <meta property="twitter:title" content={SEOProps.seoTitle} />
+  <meta property="twitter:description" content={SEOProps.pageDescription} />
+  <meta
+    property="twitter:image"
+    content={new URL(SEOProps.seoImage || SEOProps.defaultSEOImage, Astro.url)}
+  />
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+    rel="stylesheet"
+  />
 
   <!-- Add JSON TLD Schema for SEO -->
-  <script type="application/ld+json" set:html={JSON.stringify(jsonTldSchema)} is:inline></script>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonTldSchema)} is:inline />
 
-	<!-- Add analytics script -->
-	{import.meta.env.PROD && (
-	<Analytics />)}
-	<slot />
+  <!-- Add client router -->
+  <ClientRouter />
+
+  <!-- Add analytics script -->
+  {import.meta.env.PROD && <Analytics />}
+  <slot />
 </head>

@@ -5,17 +5,16 @@ import NavDefault from '@components/NavDefault.astro';
 import Footer from '@components/FooterDefault.astro';
 import NavArticle from '@components/NavArticle.astro';
 
-const {article} = Astro.props
+const { article } = Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<BaseHead article={article}/>
+<!doctype html>
+<html lang='en' dir='ltr'>
+  <BaseHead article={article} />
 
-<body>
-	{!article && <NavDefault />}
-  {article && <NavArticle />}
-	<slot />
-	<Footer />
-</body>
+  <body>
+    {article ? <NavArticle /> : <NavDefault />}
+    <slot />
+    <Footer />
+  </body>
 </html>

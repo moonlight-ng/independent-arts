@@ -5,6 +5,9 @@ import path from 'path';
 export default defineConfig({
   site: 'https://independent-arts.org',
   integrations: [sitemap()],
+  image: {
+    domains: ["utfs.io"],
+  },
   vite: {
     resolve: {
       alias: {

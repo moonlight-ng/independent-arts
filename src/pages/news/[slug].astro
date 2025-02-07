@@ -1,60 +1,59 @@
 ---
-import Layout from "@layout/Default.astro";
-import { Image } from "astro:assets";
-import { getCollection } from "astro:content";
-import { parse, format } from 'date-fns';
+import Layout from '@layout/Default.astro';
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const newsEntries = await getCollection("news");
-  return newsEntries.map(post => ({
-    params: {
-      slug: post.slug
-    },
-    props: {
-      post
-    }
+  const newsEntries = await getCollection('news');
+
+  return newsEntries.map((entry) => ({
+    params: { slug: entry.data.slug },
+    props: { entry },
   }));
 }
 
-const { post } = Astro.props;
-let {data} = post;
-const { Content } = await post.render()
+const { entry } = Astro.props;
 
-const seoImage = data.seoImageUrl || data.imageUrl;
-const articleSEO = 	{
-	"route": `/news/${data.url}`,
-	"data": {
-		"pageTitle": data.title,
-		"pageDescription": data.description,
-		"seoTitle": `i-a · ${data.title}`,
-		"seoImage": `${Astro.site}${seoImage.src}`,
-	}
+const formattedDate = new Date(entry.data.publishedAt).toLocaleDateString(
+  'en-US',
+  {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  }
+);
+
+const articleSEO = {
+  route: `/news/${entry.data.slug}`,
+  data: {
+    pageTitle: entry.data.title,
+    pageDescription: entry.data.description,
+    seoTitle: entry.data.title,
+    seoImage: entry.data.coverImage,
+  },
 };
-
-// Remove the leading '#' and parse the date
-let formattedDate = 'Invalid Date';
-try {
-  const date = parse(data.date, 'dd.MM.yyyy', new Date());
-  formattedDate = format(date, 'MMM d, yyyy');
-} catch (error) {
-  console.error('Error parsing date:', error);
-}
 ---
 
 <Layout article={articleSEO}>
   <main>
-    <div class="newsHeader">
-      <div class="newsHeaderImage" aria-hidden="true">
-        <Image src={data.imageUrl} alt="{data.title}" />
+    <div class='newsHeader'>
+      <div class='newsHeaderImage' aria-hidden='true'>
+        <Image
+          src={entry.data.coverImage}
+          alt={entry.data.title}
+          inferSize
+          loading='eager'
+          class='coverImage'
+        />
       </div>
-      <h1 class="newsHeaderTitle">{data.title}</h1>
-      <div class="newsHeaderDetails">
-        <p>{data.author} ・ {formattedDate}</p>
+      <h1 class='newsHeaderTitle'>{entry.data.title}</h1>
+      <div class='newsHeaderDetails'>
+        <p>{entry.data.author.name} ・ {formattedDate}</p>
       </div>
     </div>
-    <div class="l-container newsContentContainer">
-      <Content />
-      <div class="newsContentFooter">✦</div>
+    <div class='l-container newsContentContainer'>
+      <article set:html={entry.data.content} />
+      <div class='newsContentFooter'>✦</div>
     </div>
   </main>
 </Layout>
@@ -79,7 +78,7 @@ try {
   }
   .newsHeaderDetails {
     display: flex;
-    column-gap: .5em;
+    column-gap: 0.5em;
     font-family: var(--font-sans);
     font-size: 1.6rem;
   }
@@ -110,6 +109,11 @@ try {
   @media screen and (max-width: 600px) {
     .newsHeader {
       padding: 0 16px;
+    }
+  }
+  @media screen and (min-width: 600px) {
+    .newsHeaderImage > img {
+      min-height: 370px;
     }
   }
 </style>

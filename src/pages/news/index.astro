@@ -1,24 +1,16 @@
 ---
-import NewsCard from "@components/NewsCard.astro";
-import Layout from "@layout/Default.astro";
-import { getCollection } from "astro:content";
-let newsPosts = await getCollection("news");
+import NewsCard from '@components/NewsCard.astro';
+import Layout from '@layout/Default.astro';
+import { getCollection } from 'astro:content';
 
-// Sort news posts by most recent date
-newsPosts.sort((a, b) => {
-  const dateA = new Date(a.data.date.split('.').reverse().join('-'));
-  const dateB = new Date(b.data.date.split('.').reverse().join('-'));
-  return dateB - dateA;
-});
+const newsPosts = await getCollection('news');
 ---
 
 <Layout>
-  <main class="container">
-    <div class="newsContainer">
-      <div class="l-container newsGrid">
-        {newsPosts.map(newsPost => (
-          <NewsCard frontmatter={newsPost.data}/>
-        ))}
+  <main class='container'>
+    <div class='newsContainer'>
+      <div class='l-container newsGrid'>
+        {newsPosts.map((newsPost) => <NewsCard data={newsPost.data} />)}
       </div>
     </div>
   </main>
