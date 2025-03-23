@@ -6,7 +6,7 @@ export default defineConfig({
   site: 'https://independent-arts.org',
   integrations: [sitemap()],
   image: {
-    domains: ["utfs.io"],
+    domains: ["utfs.io", "images.marblecms.com"],
   },
   vite: {
     resolve: {
