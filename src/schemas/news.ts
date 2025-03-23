@@ -8,10 +8,13 @@ export const newsPostSchema = z.object({
   description: z.string(),
   coverImage: z.string().url(),
   publishedAt: z.coerce.date(),
-  author: z.object({
-    name: z.string(),
-    image: z.string().url(),
-  }),
+  authors: z.array(
+    z.object({
+      id: z.string(),
+      name: z.string(),
+      image: z.string().url(),
+    })
+  ),
   category: z.object({
     id: z.string(),
     name: z.string(),
