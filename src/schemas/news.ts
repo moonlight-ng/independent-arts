@@ -35,3 +35,22 @@ export const newsPostSchema = z.object({
     .nullable(),
 });
 export type NewsPost = z.infer<typeof newsPostSchema>;
+
+
+export const paginationSchema = z.object({
+  limit: z.number(),
+  currPage: z.number(),
+  nextPage: z.number().nullable(),
+  prevPage: z.number().nullable(),
+  totalPages: z.number(),
+  totalItems: z.number(),
+});
+export type Pagination = z.infer<typeof paginationSchema>;
+
+export const MarblePostResponseSchema = z.object({
+  posts: z.array(newsPostSchema),
+  pagination: paginationSchema,
+});
+export type MarblePostResponse = z.infer<typeof MarblePostResponseSchema>;
+
+
