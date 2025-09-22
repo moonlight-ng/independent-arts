@@ -38,13 +38,15 @@ const articleSEO = {
   <main>
     <div class='newsHeader'>
       <div class='newsHeaderImage' aria-hidden='true'>
-        <Image
-          src={entry.data.coverImage}
-          alt={entry.data.title}
-          inferSize
-          loading='eager'
-          class='coverImage'
-        />
+        {entry.data.coverImage && (
+          <Image
+            src={entry.data.coverImage}
+            alt={entry.data.title}
+            inferSize
+            loading='eager'
+            class='coverImage'
+          />
+        )}
       </div>
       <h1 class='newsHeaderTitle'>{entry.data.title}</h1>
       <div class='newsHeaderDetails'>
