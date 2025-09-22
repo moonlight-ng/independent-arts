@@ -1,14 +1,35 @@
 import { defineCollection } from 'astro:content';
-import { newsPostSchema, type MarblePostResponse } from './schemas/news';
+import { newsPostSchema, type NewsPost } from './schemas/news';
 
 const key = import.meta.env.MARBLE_WORKSPACE_KEY;
 const url = import.meta.env.MARBLE_API_URL;
 
+async function fetchNews(queryParams = ""): Promise<NewsPost[]> {
+  const fullUrl = `${url}/${key}/posts${queryParams}`;
+
+  try {
+    const response = await fetch(fullUrl);
+
+    if (!response.ok) {
+      console.error(`Failed to fetch posts from ${fullUrl}:`, {
+        status: response.status,
+        statusText: response.statusText,
+        url: fullUrl,
+      });
+      return [];
+    }
+      
+    const data = await response.json();
+    return data.posts as NewsPost[];
+  } catch (error) {
+    console.error(`Error fetching posts from ${fullUrl}:`, error);
+    return [];
+  }
+}
+
 const newsCollection = defineCollection({
   loader: async () => {
-    const response = await fetch(`${url}/${key}/posts`);
-    const rawData: MarblePostResponse = await response.json();
-    const newsPosts = rawData.posts.map((post) => newsPostSchema.parse(post));
+    const newsPosts = await fetchNews();
 
     // https://docs.astro.build/en/reference/content-loader-reference/#loader-types
     return newsPosts.map((post) => ({
