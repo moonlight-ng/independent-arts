@@ -7,7 +7,7 @@ interface Props {
 }
 
 const { data } = Astro.props;
-const { title, slug, attribution, author, publishedAt, coverImage } = data;
+const { title, slug, attribution, authors, publishedAt, coverImage } = data;
 
 const formattedDate = new Date(publishedAt)
   .toLocaleDateString('en-US', {
@@ -20,13 +20,13 @@ const formattedDate = new Date(publishedAt)
 
 const link = attribution ? attribution.url : `/news/${slug}`;
 const target = attribution ? '_blank' : '_self';
-const nameToDisplay = attribution ? attribution.author : author.name;
+const nameToDisplay = attribution ? attribution.author : authors[0].name;
 const external = attribution ? true : false;
 ---
 
 <a class='news' href={link} target={target}>
   <div class='imgContainer' aria-hidden='true'>
-    <Image src={coverImage} alt={title} loading="eager" inferSize />
+    <Image src={coverImage || '/thumbnail.png'} alt={title} loading="eager" inferSize />
   </div>
   <div class='newsExcerptDetails'>
     <p>{formattedDate} - {nameToDisplay}</p>

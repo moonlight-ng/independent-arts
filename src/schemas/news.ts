@@ -1,4 +1,4 @@
-import { z } from 'astro:content';
+import { z } from "astro:content";
 
 export const newsPostSchema = z.object({
   id: z.string(),
@@ -6,12 +6,16 @@ export const newsPostSchema = z.object({
   title: z.string(),
   content: z.string(),
   description: z.string(),
-  coverImage: z.string().url(),
+  coverImage: z.string().url().nullable().optional(),
   publishedAt: z.coerce.date(),
-  author: z.object({
-    name: z.string(),
-    image: z.string().url(),
-  }),
+  updatedAt: z.coerce.date(),
+  authors: z.array(
+    z.object({
+      id: z.string(),
+      name: z.string(),
+      image: z.string().url().nullable().optional(),
+    })
+  ),
   category: z.object({
     id: z.string(),
     name: z.string(),
@@ -32,3 +36,19 @@ export const newsPostSchema = z.object({
     .nullable(),
 });
 export type NewsPost = z.infer<typeof newsPostSchema>;
+
+export const paginationSchema = z.object({
+  limit: z.number(),
+  currentPage: z.number(),
+  nextPage: z.number().nullable(),
+  previousPage: z.number().nullable(),
+  totalPages: z.number(),
+  totalItems: z.number(),
+});
+export type Pagination = z.infer<typeof paginationSchema>;
+
+export const MarblePostListSchema = z.object({
+  posts: z.array(newsPostSchema),
+  pagination: paginationSchema,
+});
+export type MarblePostList = z.infer<typeof MarblePostListSchema>;
