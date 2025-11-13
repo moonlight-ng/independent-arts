@@ -16,7 +16,7 @@
     "@astrojs/sitemap": "^3.2.1",
     "@mailchimp/mailchimp_marketing": "^3.0.75",
     "@xstate/fsm": "^2.0.0",
-    "astro": "^5.1.9",
+    "astro": "^5.15.6",
     "autoprefixer": "^10.4.7",
     "axios": "^1.6.7",
     "crypto": "^1.0.1",
