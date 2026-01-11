@@ -1,31 +1,54 @@
 import { z } from "astro:content";
 
-export const newsPostSchema = z.object({
+export const paginationSchema = z.object({
+  limit: z.number(),
+  currentPage: z.number(),
+  nextPage: z.number().nullable(),
+  previousPage: z.number().nullable(),
+  totalPages: z.number(),
+  totalItems: z.number(),
+});
+
+export const newsSchema = z.object({
   id: z.string(),
   slug: z.string(),
   title: z.string(),
   content: z.string(),
+  featured: z.boolean(),
   description: z.string(),
-  coverImage: z.string().url().nullable().optional(),
+  coverImage: z.string().nullable(),
   publishedAt: z.coerce.date(),
   updatedAt: z.coerce.date(),
   authors: z.array(
     z.object({
       id: z.string(),
       name: z.string(),
-      image: z.string().url().nullable().optional(),
+      image: z.string().nullable(),
+      bio: z.string().nullable(),
+      role: z.string().nullable(),
+      slug: z.string(),
+      socials: z.array(
+        z.object({
+          url: z.string().url(),
+          platform: z.string(),
+        })
+      ),
     })
   ),
-  category: z.object({
-    id: z.string(),
-    name: z.string(),
-    slug: z.string(),
-  }),
+  category: z
+    .object({
+      id: z.string(),
+      name: z.string(),
+      slug: z.string(),
+      description: z.string().nullable(),
+    })
+    .nullable(),
   tags: z.array(
     z.object({
       id: z.string(),
       name: z.string(),
       slug: z.string(),
+      description: z.string().nullable(),
     })
   ),
   attribution: z
@@ -35,20 +58,24 @@ export const newsPostSchema = z.object({
     })
     .nullable(),
 });
-export type NewsPost = z.infer<typeof newsPostSchema>;
 
-export const paginationSchema = z.object({
-  limit: z.number(),
-  currentPage: z.number(),
-  nextPage: z.number().nullable(),
-  previousPage: z.number().nullable(),
-  totalPages: z.number(),
-  totalItems: z.number(),
-});
-export type Pagination = z.infer<typeof paginationSchema>;
+export type News = z.infer<typeof newsSchema>;
 
-export const MarblePostListSchema = z.object({
-  posts: z.array(newsPostSchema),
+export const newsListSchema = z.object({
+  posts: z.array(newsSchema),
   pagination: paginationSchema,
 });
-export type MarblePostList = z.infer<typeof MarblePostListSchema>;
+
+export type NewsList = z.infer<typeof newsListSchema>;
+
+export const categorySchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  slug: z.string(),
+  description: z.string().nullable(),
+  count: z.object({
+    posts: z.number().int(),
+  }),
+});
+
+export type Category = z.infer<typeof categorySchema>;

@@ -1,54 +1,26 @@
 import { defineCollection } from "astro:content";
-import { newsPostSchema, type NewsPost } from "./schemas/news";
-
+import { newsSchema } from "./schemas/news";
+import { Marble } from "@usemarble/sdk";
 const key = import.meta.env.MARBLE_API_KEY;
-const url = import.meta.env.MARBLE_API_URL;
 
-if (!url || !key) {
-  throw new Error(
-    "Missing MARBLE_API_URL or MARBLE_API_KEY in environment variables"
-  );
+if (!key) {
+  throw new Error("Missing MARBLE_API_KEY in environment variables");
 }
 
-async function fetchNews(queryParams = ""): Promise<NewsPost[]> {
-  const fullUrl = `${url}/posts${queryParams}`;
-
-  try {
-    const response = await fetch(fullUrl, {
-      headers: {
-        Authorization: `Bearer ${key}`,
-      },
-    });
-
-    if (!response.ok) {
-      console.error(`Failed to fetch posts from ${fullUrl}:`, {
-        status: response.status,
-        statusText: response.statusText,
-        url: fullUrl,
-      });
-      return [];
-    }
-
-    const data = await response.json();
-    return data.posts as NewsPost[];
-  } catch (error) {
-    console.error(`Error fetching posts from ${fullUrl}:`, error);
-    return [];
-  }
-}
+const marble = new Marble({
+  apiKey: key,
+});
 
 const newsCollection = defineCollection({
   loader: async () => {
-    const newsPosts = await fetchNews();
+    const { result } = await marble.posts.list();
 
     // https://docs.astro.build/en/reference/content-loader-reference/#loader-types
-    return newsPosts.map((post) => ({
+    return result.posts.map((post) => ({
       ...post,
     }));
   },
-  schema: newsPostSchema,
+  schema: newsSchema,
 });
 
-export const collections = {
-  news: newsCollection,
-};
+export const collections = { news: newsCollection };
