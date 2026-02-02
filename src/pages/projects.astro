@@ -2,15 +2,9 @@
 //Components
 import Layout from "@layout/Default.astro";
 import ProjectCard from "@components/ProjectCard.astro";
-import DatabaseCard from "@components/DatabaseCard.astro";
-import NewsletterPreview from "@components/NewsletterPreview.astro";
-import JournalPreview from "@components/JournalPreview.astro";
 
 // Data
 import projects from "@data/projects.json";
-import journals from "@data/journal.json";
-import newsletters from "@data/newsletters.json";
-import databases from "@data/databases.json";
 
 const iaProjects = projects.filter((project) => project.producer === 'ia');
 
@@ -20,7 +14,7 @@ const iaProjects = projects.filter((project) => project.producer === 'ia');
 	<main>
 		<section class="l-section l-section--padded">
 			<div class="l-container l-grid">
-				<div class="c-section__left l-grid__column--8">
+				<div class="c-section__left c-section__left--centered">
 					<ul class="c-project-list">
 						{iaProjects.map((p) => (
 						<li class="c-project-list__item">
@@ -29,14 +23,6 @@ const iaProjects = projects.filter((project) => project.producer === 'ia');
 						))}
 					</ul>
 				</div>
-				<aside class="c-section__right l-grid__column-start--10 l-grid__column--3">
-					<h4 class="c-section-title">Research</h4>
-					<ul class="aside-list data">
-						{databases.map((db) => (<li>
-							<DatabaseCard {...db} />
-						</li>))}
-					</ul>
-				</aside>
 			</div>
 		</section>
 	</main>
@@ -49,32 +35,8 @@ const iaProjects = projects.filter((project) => project.producer === 'ia');
 		margin-top: var(--spacer-base);
 	}
 
-	.c-section-title {
-		color: var(--color-dark-gray);
-
-		@include screen('small') {
-			top: 0;
-			position: static;
-		}
-	}
-
-	.data {
-		a.cover-text {
-			font-style: normal;
-
-			&:hover {
-				text-decoration: none;
-			}
-		}
-	}
-
-
-	.c-project-list,
-	.aside-list {
-		padding: var(--spacer-base) 0;
-	}
-
 	.c-project-list {
+		padding: var(--spacer-base) 0;
 		padding-block-start: 0;
 		padding-top: 0;
 	}
@@ -86,26 +48,11 @@ const iaProjects = projects.filter((project) => project.producer === 'ia');
 		}
 	}
 
-	.c-section__left,
-	.c-section__right {
+	.l-grid .c-section__left--centered {
+		grid-column: 3 / 11 !important;
+		
 		@include screen('small') {
-			grid-column: 1 / -1;
-		}
-	}
-
-	.aside-list>*+* {
-		margin-top: calc(var(--spacer-base) / 4);
-
-		@include screen('small') {
-			margin-top: calc(var(--spacer-base) / 8);
-		}
-	}
-
-	.aside-list--md>*+* {
-		margin-top: calc(var(--spacer-base) / 2);
-
-		@include screen('small') {
-			margin-top: calc(var(--spacer-base) / 4);
+			grid-column: 1 / -1 !important;
 		}
 	}
 

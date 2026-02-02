@@ -13,11 +13,11 @@
     "test": "astro build && astro preview"
   },
   "dependencies": {
-    "@astrojs/sitemap": "3.6.1",
+    "@astrojs/sitemap": "3.7.0",
     "@mailchimp/mailchimp_marketing": "^3.0.75",
     "@usemarble/sdk": "^1.0.7",
     "@xstate/fsm": "^2.0.0",
-    "astro": "5.16.8",
+    "astro": "5.17.1",
     "autoprefixer": "^10.4.7",
     "axios": "^1.6.7",
     "crypto": "^1.0.1",
