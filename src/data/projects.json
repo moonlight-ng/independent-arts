@@ -1,5 +1,18 @@
 [
   {
+    "id": "30ajasa",
+    "title": "30 Ajasa St",
+    "creator": "Tushar Hathiramani",
+    "status": "live",
+    "producer": "ia",
+    "category": "A community space in Lagos Island.",
+    "description": "A c",
+    "url": {
+      "text": "30ajasa.com",
+      "href": "https://30ajasa.com"
+    }
+  },
+  {
     "id": "edeyhappen",
     "title": "E Dey Happen",
     "creator": "Eris Ekanem",
@@ -15,16 +28,16 @@
     "id": "noro",
     "creator": "Chuma Asuzu",
     "title": "Nọrọ",
-    "status": "wip",
+    "status": "live",
     "producer": "wr",
     "category": "Product",
-    "description": "Nọrọ is the Igbo word for stay."
+    "description": "A collection of stools."
   }, {
     "id": "rosesroses",
     "creator": "Princess Ebi",
     "title": "Roses Roses",
     "status": "live",
-    "producer": "wr",
+    "producer": "ia",
     "category": "Research",
     "description": "A research project on Nigerian flowers.",
     "url": {
