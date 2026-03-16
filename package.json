@@ -19,7 +19,7 @@
     "@xstate/fsm": "^2.0.0",
     "astro": "5.17.1",
     "autoprefixer": "^10.4.7",
-    "axios": "^1.6.7",
+    "axios": "^1.13.5",
     "crypto": "^1.0.1",
     "date-fns": "^4.1.0",
     "editorconfig": "^0.15.3",
