@@ -11,11 +11,12 @@ const newsCollection = defineCollection({
 
     try {
       const marble = new Marble({ apiKey: key });
-      const { result } = await marble.posts.list();
+      const { result } = await marble.posts.list({ status: "all", limit: 100 });
 
       // https://docs.astro.build/en/reference/content-loader-reference/#loader-types
       return result.posts.map((post) => ({
         ...post,
+        fields: post.fields ?? {},
       }));
     } catch (err) {
       console.error(

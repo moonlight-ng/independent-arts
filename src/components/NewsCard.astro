@@ -1,13 +1,13 @@
 ---
-import { type NewsPost } from '@@/schemas/news';
+import { type News } from '@@/schemas/news';
 import { Image } from 'astro:assets';
 
 interface Props {
-  data: NewsPost;
+  data: News;
 }
 
 const { data } = Astro.props;
-const { title, slug, attribution, authors, publishedAt, coverImage } = data;
+const { title, slug, fields, authors, publishedAt, coverImage } = data;
 
 const formattedDate = new Date(publishedAt)
   .toLocaleDateString('en-US', {
@@ -18,10 +18,12 @@ const formattedDate = new Date(publishedAt)
   .split('/')
   .join('.');
 
-const link = attribution ? attribution.url : `/news/${slug}`;
-const target = attribution ? '_blank' : '_self';
-const nameToDisplay = attribution ? attribution.author : authors[0].name;
-const external = attribution ? true : false;
+const originalUrl = fields?.original_url;
+const originalAuthor = fields?.original_author;
+const link = originalUrl || `/news/${slug}`;
+const target = originalUrl ? '_blank' : '_self';
+const nameToDisplay = originalAuthor || authors[0].name;
+const external = Boolean(originalUrl);
 ---
 
 <a class='news' href={link} target={target}>

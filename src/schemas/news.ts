@@ -51,12 +51,21 @@ export const newsSchema = z.object({
       description: z.string().nullable(),
     })
   ),
-  attribution: z
+  fields: z
     .object({
-      author: z.string(),
-      url: z.string().url(),
+      original_author: z.string().nullish(),
+      original_url: z.string().url().nullish(),
     })
-    .nullable(),
+    .catchall(
+      z.union([
+        z.string(),
+        z.number(),
+        z.boolean(),
+        z.array(z.string()),
+        z.null(),
+      ])
+    )
+    .default({}),
 });
 
 export type News = z.infer<typeof newsSchema>;
