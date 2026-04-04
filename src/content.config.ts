@@ -1,24 +1,29 @@
 import { defineCollection } from "astro:content";
 import { newsSchema } from "./schemas/news";
 import { Marble } from "@usemarble/sdk";
-const key = import.meta.env.MARBLE_API_KEY;
-
-if (!key) {
-  throw new Error("Missing MARBLE_API_KEY in environment variables");
-}
-
-const marble = new Marble({
-  apiKey: key,
-});
 
 const newsCollection = defineCollection({
   loader: async () => {
-    const { result } = await marble.posts.list();
+    const key = import.meta.env.MARBLE_API_KEY;
+    if (!key) {
+      return [];
+    }
 
-    // https://docs.astro.build/en/reference/content-loader-reference/#loader-types
-    return result.posts.map((post) => ({
-      ...post,
-    }));
+    try {
+      const marble = new Marble({ apiKey: key });
+      const { result } = await marble.posts.list();
+
+      // https://docs.astro.build/en/reference/content-loader-reference/#loader-types
+      return result.posts.map((post) => ({
+        ...post,
+      }));
+    } catch (err) {
+      console.error(
+        "[content/news] Marble posts.list() failed; building with no news entries.",
+        err
+      );
+      return [];
+    }
   },
   schema: newsSchema,
 });
