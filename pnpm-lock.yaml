@@ -15,8 +15,8 @@ importers:
         specifier: ^3.0.75
         version: 3.0.80
       '@usemarble/sdk':
-        specifier: ^1.0.7
-        version: 1.0.7
+        specifier: ^1.1.3
+        version: 1.1.3
       '@xstate/fsm':
         specifier: ^2.0.0
         version: 2.1.0
@@ -795,8 +795,8 @@ packages:
   '@ungap/structured-clone@1.3.0':
     resolution: {integrity: sha512-WmoN8qaIAo7WTYWbAZuG8PYEhn5fkz7dZrqTBZ7dtt//lL2Gwms1IcnQ5yHqjDfX8Ft5j4YzDM23f87zBfDe9g==}
 
-  '@usemarble/sdk@1.0.7':
-    resolution: {integrity: sha512-lIRXG0BIXAPqeQ1rzrpCryrfQVUTAdBc8hLq556b4Lxs11n8iHYQyeOj00AAligeVIjQJwKSFSgnwLdgR+bpZQ==}
+  '@usemarble/sdk@1.1.3':
+    resolution: {integrity: sha512-siv0cJsSfAXsUFVeKhjis3j04d70p9vhUjVpGbizUlNx3GTa31Zf6+cbxDXcLV6WP6bXJc084pVXFyoU4RLVKg==}
 
   '@xstate/fsm@2.1.0':
     resolution: {integrity: sha512-oJlc0iD0qZvAM7If/KlyJyqUt7wVI8ocpsnlWzAPl97evguPbd+oJbRM9R4A1vYJffYH96+Bx44nLDE6qS8jQg==}
@@ -2870,7 +2870,7 @@ snapshots:
 
   '@ungap/structured-clone@1.3.0': {}
 
-  '@usemarble/sdk@1.0.7':
+  '@usemarble/sdk@1.1.3':
     dependencies:
       zod: 4.3.5
 
