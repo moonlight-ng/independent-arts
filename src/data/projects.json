@@ -1,15 +1,15 @@
 [
   {
-    "id": "ajasa",
-    "title": "Ajasa Makerspace",
+    "id": "makerspace",
+    "title": "Makerspace",
     "creator": "Tushar Hathiramani",
     "status": "live",
     "producer": "ia",
     "category": "Space",
-    "description": "A community space in Lagos Island.",
+    "description": "A design and production center.",
     "url": {
-      "text": "30ajasa.com",
-      "href": "https://30ajasa.com"
+      "text": "makerspace.16by16.co",
+      "href": "https://makerspace.16by16.co"
     }
   },
   {
